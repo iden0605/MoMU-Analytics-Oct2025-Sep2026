@@ -1,0 +1,986 @@
+{
+  "generated": "2026-09-07T09:49:02Z",
+  "window": "2025-10-01 to 2026-09-30",
+  "source": "instagram.com/momuians public grid + reels tab, scraped 2026-09-07",
+  "count": 134,
+  "headline": {
+    "reels": 88,
+    "posts": 46,
+    "first": "2025-10-01",
+    "last": "2026-09-07",
+    "total_reel_views": 593831,
+    "avg_reel_views": 6748,
+    "median_reel_views": 6092,
+    "total_interactions": 17872,
+    "avg_engagement_rate": 0.0216
+  },
+  "reels_timeline": [
+    {
+      "date": "2025-10-05",
+      "views": 9719,
+      "interactions": 108
+    },
+    {
+      "date": "2025-10-11",
+      "views": 13886,
+      "interactions": 218
+    },
+    {
+      "date": "2025-10-21",
+      "views": 11892,
+      "interactions": 156
+    },
+    {
+      "date": "2025-10-25",
+      "views": 9859,
+      "interactions": 293
+    },
+    {
+      "date": "2025-10-30",
+      "views": 8639,
+      "interactions": 201
+    },
+    {
+      "date": "2025-11-02",
+      "views": 12796,
+      "interactions": 151
+    },
+    {
+      "date": "2025-11-05",
+      "views": 7798,
+      "interactions": 89
+    },
+    {
+      "date": "2025-11-09",
+      "views": 9267,
+      "interactions": 110
+    },
+    {
+      "date": "2025-11-13",
+      "views": 8850,
+      "interactions": 135
+    },
+    {
+      "date": "2025-11-14",
+      "views": 7522,
+      "interactions": 195
+    },
+    {
+      "date": "2025-11-16",
+      "views": 8654,
+      "interactions": 122
+    },
+    {
+      "date": "2025-11-19",
+      "views": 6495,
+      "interactions": 93
+    },
+    {
+      "date": "2025-11-26",
+      "views": 8618,
+      "interactions": 332
+    },
+    {
+      "date": "2025-12-03",
+      "views": 5315,
+      "interactions": 77
+    },
+    {
+      "date": "2025-12-10",
+      "views": 7235,
+      "interactions": 139
+    },
+    {
+      "date": "2025-12-14",
+      "views": 4246,
+      "interactions": 101
+    },
+    {
+      "date": "2025-12-17",
+      "views": 9198,
+      "interactions": 110
+    },
+    {
+      "date": "2025-12-19",
+      "views": 5568,
+      "interactions": 137
+    },
+    {
+      "date": "2025-12-23",
+      "views": 7301,
+      "interactions": 94
+    },
+    {
+      "date": "2025-12-30",
+      "views": 7130,
+      "interactions": 106
+    },
+    {
+      "date": "2026-01-08",
+      "views": 9729,
+      "interactions": 113
+    },
+    {
+      "date": "2026-01-17",
+      "views": 5830,
+      "interactions": 106
+    },
+    {
+      "date": "2026-01-23",
+      "views": 18372,
+      "interactions": 282
+    },
+    {
+      "date": "2026-01-31",
+      "views": 3718,
+      "interactions": 101
+    },
+    {
+      "date": "2026-02-11",
+      "views": 6619,
+      "interactions": 85
+    },
+    {
+      "date": "2026-02-15",
+      "views": 4064,
+      "interactions": 84
+    },
+    {
+      "date": "2026-02-18",
+      "views": 4294,
+      "interactions": 86
+    },
+    {
+      "date": "2026-02-19",
+      "views": 3753,
+      "interactions": 71
+    },
+    {
+      "date": "2026-02-21",
+      "views": 4888,
+      "interactions": 103
+    },
+    {
+      "date": "2026-02-23",
+      "views": 5222,
+      "interactions": 94
+    },
+    {
+      "date": "2026-02-24",
+      "views": 3844,
+      "interactions": 87
+    },
+    {
+      "date": "2026-02-24",
+      "views": 4883,
+      "interactions": 101
+    },
+    {
+      "date": "2026-02-25",
+      "views": 6749,
+      "interactions": 111
+    },
+    {
+      "date": "2026-02-25",
+      "views": 4378,
+      "interactions": 81
+    },
+    {
+      "date": "2026-02-26",
+      "views": 6896,
+      "interactions": 130
+    },
+    {
+      "date": "2026-03-02",
+      "views": 7244,
+      "interactions": 119
+    },
+    {
+      "date": "2026-03-06",
+      "views": 8828,
+      "interactions": 125
+    },
+    {
+      "date": "2026-03-10",
+      "views": 14928,
+      "interactions": 197
+    },
+    {
+      "date": "2026-03-13",
+      "views": 5153,
+      "interactions": 89
+    },
+    {
+      "date": "2026-03-15",
+      "views": 5746,
+      "interactions": 97
+    },
+    {
+      "date": "2026-03-17",
+      "views": 9903,
+      "interactions": 154
+    },
+    {
+      "date": "2026-03-20",
+      "views": 6659,
+      "interactions": 97
+    },
+    {
+      "date": "2026-03-24",
+      "views": 6085,
+      "interactions": 141
+    },
+    {
+      "date": "2026-03-27",
+      "views": 8925,
+      "interactions": 167
+    },
+    {
+      "date": "2026-04-02",
+      "views": 5233,
+      "interactions": 104
+    },
+    {
+      "date": "2026-04-04",
+      "views": 4084,
+      "interactions": 134
+    },
+    {
+      "date": "2026-04-05",
+      "views": 4094,
+      "interactions": 109
+    },
+    {
+      "date": "2026-04-07",
+      "views": 2850,
+      "interactions": 103
+    },
+    {
+      "date": "2026-04-11",
+      "views": 6927,
+      "interactions": 126
+    },
+    {
+      "date": "2026-04-12",
+      "views": 8445,
+      "interactions": 210
+    },
+    {
+      "date": "2026-04-17",
+      "views": 4098,
+      "interactions": 96
+    },
+    {
+      "date": "2026-04-21",
+      "views": 8063,
+      "interactions": 154
+    },
+    {
+      "date": "2026-04-23",
+      "views": 4184,
+      "interactions": 103
+    },
+    {
+      "date": "2026-04-26",
+      "views": 4937,
+      "interactions": 131
+    },
+    {
+      "date": "2026-04-27",
+      "views": 4228,
+      "interactions": 88
+    },
+    {
+      "date": "2026-04-29",
+      "views": 5709,
+      "interactions": 121
+    },
+    {
+      "date": "2026-05-02",
+      "views": 5319,
+      "interactions": 112
+    },
+    {
+      "date": "2026-05-08",
+      "views": 2238,
+      "interactions": 88
+    },
+    {
+      "date": "2026-05-10",
+      "views": 2466,
+      "interactions": 111
+    },
+    {
+      "date": "2026-05-11",
+      "views": 2082,
+      "interactions": 77
+    },
+    {
+      "date": "2026-05-12",
+      "views": 7083,
+      "interactions": 98
+    },
+    {
+      "date": "2026-05-17",
+      "views": 3030,
+      "interactions": 90
+    },
+    {
+      "date": "2026-05-19",
+      "views": 6098,
+      "interactions": 222
+    },
+    {
+      "date": "2026-05-21",
+      "views": 11820,
+      "interactions": 263
+    },
+    {
+      "date": "2026-05-24",
+      "views": 7350,
+      "interactions": 149
+    },
+    {
+      "date": "2026-05-29",
+      "views": 4361,
+      "interactions": 232
+    },
+    {
+      "date": "2026-05-31",
+      "views": 8850,
+      "interactions": 268
+    },
+    {
+      "date": "2026-06-03",
+      "views": 12408,
+      "interactions": 602
+    },
+    {
+      "date": "2026-06-06",
+      "views": 5019,
+      "interactions": 137
+    },
+    {
+      "date": "2026-06-14",
+      "views": 5068,
+      "interactions": 138
+    },
+    {
+      "date": "2026-06-18",
+      "views": 3970,
+      "interactions": 135
+    },
+    {
+      "date": "2026-06-21",
+      "views": 4143,
+      "interactions": 86
+    },
+    {
+      "date": "2026-06-28",
+      "views": 2303,
+      "interactions": 66
+    },
+    {
+      "date": "2026-07-04",
+      "views": 2401,
+      "interactions": 73
+    },
+    {
+      "date": "2026-07-09",
+      "views": 5080,
+      "interactions": 96
+    },
+    {
+      "date": "2026-07-19",
+      "views": 4636,
+      "interactions": 111
+    },
+    {
+      "date": "2026-07-21",
+      "views": 4579,
+      "interactions": 91
+    },
+    {
+      "date": "2026-07-26",
+      "views": 4384,
+      "interactions": 84
+    },
+    {
+      "date": "2026-07-29",
+      "views": 6869,
+      "interactions": 133
+    },
+    {
+      "date": "2026-08-01",
+      "views": 4957,
+      "interactions": 81
+    },
+    {
+      "date": "2026-08-03",
+      "views": 4201,
+      "interactions": 78
+    },
+    {
+      "date": "2026-08-06",
+      "views": 5118,
+      "interactions": 74
+    },
+    {
+      "date": "2026-08-08",
+      "views": 7287,
+      "interactions": 96
+    },
+    {
+      "date": "2026-08-11",
+      "views": 18710,
+      "interactions": 227
+    },
+    {
+      "date": "2026-08-13",
+      "views": 10725,
+      "interactions": 232
+    },
+    {
+      "date": "2026-08-17",
+      "views": 6986,
+      "interactions": 106
+    },
+    {
+      "date": "2026-08-30",
+      "views": 8383,
+      "interactions": 162
+    },
+    {
+      "date": "2026-09-02",
+      "views": 6357,
+      "interactions": 109
+    }
+  ],
+  "posts_timeline": [
+    {
+      "date": "2025-10-01",
+      "likes": 102,
+      "comments": 25,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-10-04",
+      "likes": 74,
+      "comments": 20,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-10-06",
+      "likes": 110,
+      "comments": 11,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-10-06",
+      "likes": 55,
+      "comments": 1,
+      "format": "image"
+    },
+    {
+      "date": "2025-10-20",
+      "likes": 91,
+      "comments": 20,
+      "format": "image"
+    },
+    {
+      "date": "2025-10-30",
+      "likes": 127,
+      "comments": 27,
+      "format": "image"
+    },
+    {
+      "date": "2025-11-03",
+      "likes": 76,
+      "comments": 12,
+      "format": "image"
+    },
+    {
+      "date": "2025-12-25",
+      "likes": 39,
+      "comments": 7,
+      "format": "image"
+    },
+    {
+      "date": "2026-02-08",
+      "likes": 79,
+      "comments": 13,
+      "format": "image"
+    },
+    {
+      "date": "2026-02-14",
+      "likes": 91,
+      "comments": 28,
+      "format": "image"
+    },
+    {
+      "date": "2026-02-17",
+      "likes": 67,
+      "comments": 8,
+      "format": "image"
+    },
+    {
+      "date": "2026-02-20",
+      "likes": 62,
+      "comments": 14,
+      "format": "image"
+    },
+    {
+      "date": "2026-02-23",
+      "likes": 69,
+      "comments": 4,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-03-01",
+      "likes": 106,
+      "comments": 16,
+      "format": "image"
+    },
+    {
+      "date": "2026-03-04",
+      "likes": 72,
+      "comments": 16,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-03-09",
+      "likes": 97,
+      "comments": 20,
+      "format": "image"
+    },
+    {
+      "date": "2026-03-19",
+      "likes": 116,
+      "comments": 12,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-03-20",
+      "likes": 67,
+      "comments": 9,
+      "format": "image"
+    },
+    {
+      "date": "2026-03-25",
+      "likes": 51,
+      "comments": 13,
+      "format": "image"
+    },
+    {
+      "date": "2026-03-31",
+      "likes": 139,
+      "comments": 26,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-04-01",
+      "likes": 143,
+      "comments": 13,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-04-15",
+      "likes": 99,
+      "comments": 26,
+      "format": "image"
+    },
+    {
+      "date": "2026-04-19",
+      "likes": 156,
+      "comments": 18,
+      "format": "image"
+    },
+    {
+      "date": "2026-04-24",
+      "likes": 163,
+      "comments": 12,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-04-30",
+      "likes": 122,
+      "comments": 14,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-05-09",
+      "likes": 153,
+      "comments": 21,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-05-16",
+      "likes": 95,
+      "comments": 12,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-05-23",
+      "likes": 388,
+      "comments": 32,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-05-26",
+      "likes": 67,
+      "comments": 8,
+      "format": "image"
+    },
+    {
+      "date": "2026-05-28",
+      "likes": 89,
+      "comments": 17,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-06-09",
+      "likes": 82,
+      "comments": 13,
+      "format": "image"
+    },
+    {
+      "date": "2026-06-11",
+      "likes": 71,
+      "comments": 10,
+      "format": "image"
+    },
+    {
+      "date": "2026-06-24",
+      "likes": 192,
+      "comments": 15,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-07-01",
+      "likes": 96,
+      "comments": 6,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-07-06",
+      "likes": 69,
+      "comments": 12,
+      "format": "image"
+    },
+    {
+      "date": "2026-07-17",
+      "likes": 76,
+      "comments": 15,
+      "format": "image"
+    },
+    {
+      "date": "2026-07-20",
+      "likes": 59,
+      "comments": 12,
+      "format": "image"
+    },
+    {
+      "date": "2026-07-24",
+      "likes": 51,
+      "comments": 12,
+      "format": "image"
+    },
+    {
+      "date": "2026-07-27",
+      "likes": 45,
+      "comments": 11,
+      "format": "image"
+    },
+    {
+      "date": "2026-08-05",
+      "likes": 92,
+      "comments": 17,
+      "format": "image"
+    },
+    {
+      "date": "2026-08-14",
+      "likes": 779,
+      "comments": 21,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-08-24",
+      "likes": 89,
+      "comments": 20,
+      "format": "image"
+    },
+    {
+      "date": "2026-08-31",
+      "likes": 164,
+      "comments": 8,
+      "format": "image"
+    },
+    {
+      "date": "2026-09-01",
+      "likes": 165,
+      "comments": 11,
+      "format": "carousel"
+    },
+    {
+      "date": "2026-09-07",
+      "likes": 91,
+      "comments": 10,
+      "format": "image"
+    },
+    {
+      "date": "2026-09-07",
+      "likes": 19,
+      "comments": 5,
+      "format": "image"
+    }
+  ],
+  "by_month": [
+    {
+      "month": "2025-10",
+      "reels": 5,
+      "posts": 6,
+      "avg_reel_views": 10799,
+      "avg_reel_likes": 166,
+      "avg_post_likes": 93
+    },
+    {
+      "month": "2025-11",
+      "reels": 8,
+      "posts": 1,
+      "avg_reel_views": 8750,
+      "avg_reel_likes": 126,
+      "avg_post_likes": 76
+    },
+    {
+      "month": "2025-12",
+      "reels": 7,
+      "posts": 1,
+      "avg_reel_views": 6570,
+      "avg_reel_likes": 93,
+      "avg_post_likes": 39
+    },
+    {
+      "month": "2026-01",
+      "reels": 4,
+      "posts": 0,
+      "avg_reel_views": 9412,
+      "avg_reel_likes": 141,
+      "avg_post_likes": null
+    },
+    {
+      "month": "2026-02",
+      "reels": 11,
+      "posts": 5,
+      "avg_reel_views": 5054,
+      "avg_reel_likes": 77,
+      "avg_post_likes": 74
+    },
+    {
+      "month": "2026-03",
+      "reels": 9,
+      "posts": 7,
+      "avg_reel_views": 8163,
+      "avg_reel_likes": 115,
+      "avg_post_likes": 93
+    },
+    {
+      "month": "2026-04",
+      "reels": 12,
+      "posts": 5,
+      "avg_reel_views": 5238,
+      "avg_reel_likes": 102,
+      "avg_post_likes": 137
+    },
+    {
+      "month": "2026-05",
+      "reels": 11,
+      "posts": 5,
+      "avg_reel_views": 5518,
+      "avg_reel_likes": 139,
+      "avg_post_likes": 158
+    },
+    {
+      "month": "2026-06",
+      "reels": 6,
+      "posts": 3,
+      "avg_reel_views": 5485,
+      "avg_reel_likes": 180,
+      "avg_post_likes": 115
+    },
+    {
+      "month": "2026-07",
+      "reels": 6,
+      "posts": 6,
+      "avg_reel_views": 4658,
+      "avg_reel_likes": 86,
+      "avg_post_likes": 66
+    },
+    {
+      "month": "2026-08",
+      "reels": 8,
+      "posts": 4,
+      "avg_reel_views": 8296,
+      "avg_reel_likes": 119,
+      "avg_post_likes": 281
+    },
+    {
+      "month": "2026-09",
+      "reels": 1,
+      "posts": 3,
+      "avg_reel_views": 6357,
+      "avg_reel_likes": 97,
+      "avg_post_likes": 92
+    }
+  ],
+  "day_of_week": [
+    {
+      "day": "Monday",
+      "avg_views": 4994,
+      "n": 6
+    },
+    {
+      "day": "Tuesday",
+      "avg_views": 8096,
+      "n": 14
+    },
+    {
+      "day": "Wednesday",
+      "avg_views": 7003,
+      "n": 14
+    },
+    {
+      "day": "Thursday",
+      "avg_views": 7000,
+      "n": 12
+    },
+    {
+      "day": "Friday",
+      "avg_views": 7172,
+      "n": 10
+    },
+    {
+      "day": "Saturday",
+      "avg_views": 6181,
+      "n": 12
+    },
+    {
+      "day": "Sunday",
+      "avg_views": 6129,
+      "n": 20
+    }
+  ],
+  "format_split": {
+    "carousel": {
+      "n": 18,
+      "avg_likes": 170
+    },
+    "single": {
+      "n": 28,
+      "avg_likes": 80
+    }
+  },
+  "top_reels": [
+    {
+      "date": "2026-08-11",
+      "type": "reel",
+      "format": "video",
+      "views": 18710,
+      "likes": 213,
+      "comments": 14,
+      "url": "https://www.instagram.com/p/Db5O0JAM7fO/",
+      "caption": "Your future in Australia starts here! 🇦🇺 Got questions about visas, work, study or staying post-grad? Come get the clarity you need, connect"
+    },
+    {
+      "date": "2026-01-23",
+      "type": "reel",
+      "format": "video",
+      "views": 18372,
+      "likes": 271,
+      "comments": 11,
+      "url": "https://www.instagram.com/p/DT2coLaESuK/",
+      "caption": "They made a reel…  #unimelb #student #relatable # university #momuians"
+    },
+    {
+      "date": "2026-03-10",
+      "type": "reel",
+      "format": "video",
+      "views": 14928,
+      "likes": 179,
+      "comments": 18,
+      "url": "https://www.instagram.com/p/DVslueVDH5Q/",
+      "caption": "Tiga goes crazyyy 👀😭  We hope you enjoyed our summerfest booth, SOS party and Alamak Adventure !! Keep a look out for more exciting events c"
+    },
+    {
+      "date": "2025-10-11",
+      "type": "reel",
+      "format": "video",
+      "views": 13886,
+      "likes": 196,
+      "comments": 22,
+      "url": "https://www.instagram.com/p/DPqbnXZEXpt/",
+      "caption": "DAY 2 OF OFFICER RECRUITMENT INTERVIEWS HAS ENDED! I hope you enjoy our interview fits as much as we enjoyed your interviews !! Good luck to"
+    },
+    {
+      "date": "2025-11-02",
+      "type": "reel",
+      "format": "video",
+      "views": 12796,
+      "likes": 119,
+      "comments": 32,
+      "url": "https://www.instagram.com/p/DQjFuhVE6nK/",
+      "caption": "Spill the TEA about MoMU x DES BIGGEST END OF EXAMS PARTY with your friends 🫢‼️  Party details: 📌 District 1 Melbourne 📆 Party with us on 21"
+    }
+  ],
+  "top_posts": [
+    {
+      "date": "2026-08-14",
+      "type": "post",
+      "format": "carousel",
+      "views": null,
+      "likes": 779,
+      "comments": 21,
+      "url": "https://www.instagram.com/p/DcA8UbcGion/",
+      "caption": "Finding little pieces of Malaysia around Melbourne 🇲🇾💛 From familiar flavours to familiar places, Melbourne might be more similar to our roo"
+    },
+    {
+      "date": "2026-05-23",
+      "type": "post",
+      "format": "carousel",
+      "views": null,
+      "likes": 388,
+      "comments": 32,
+      "url": "https://www.instagram.com/p/DYrUsiZGnYp/",
+      "caption": "👏👏 Say hello to our 25/26 MoMU committee!! With so many exciting new faces, we are so glad to have an incredible group of executives, direct"
+    },
+    {
+      "date": "2026-06-24",
+      "type": "post",
+      "format": "carousel",
+      "views": null,
+      "likes": 192,
+      "comments": 15,
+      "url": "https://www.instagram.com/p/DZ9nwcAm3V4/",
+      "caption": "MoMU’s cruise party is undoubtedly one of the many anticipated events of the year —— did you manage to catch it? 🧐🤨  Here are some pics to r"
+    },
+    {
+      "date": "2026-09-01",
+      "type": "post",
+      "format": "carousel",
+      "views": null,
+      "likes": 165,
+      "comments": 11,
+      "url": "https://www.instagram.com/p/DcvSo2Ymk0Y/",
+      "caption": "Missing home a little extra lately? 🇲🇾🥹  Here are a few ways to feel a little more at home in Melbourne! From eating your favourite Malaysia"
+    },
+    {
+      "date": "2026-08-31",
+      "type": "post",
+      "format": "image",
+      "views": null,
+      "likes": 164,
+      "comments": 8,
+      "url": "https://www.instagram.com/p/Dcr-UDCsFSR/",
+      "caption": "A little piece of Malaysia, wherever we go. Today, we celebrate the home that brings us together!  Selamat Hari Merdeka from MoMU! 🇲🇾🤍  #MoM"
+    }
+  ]
+}
