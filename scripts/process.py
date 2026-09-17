@@ -1,13 +1,16 @@
 """Merge the raw Instagram scrapes into clean, analysis-ready files.
 
-Reads every raw/*.json scrape, dedupes by media pk, drops carousel children,
-sponsored ads and anything outside Oct 2025 - Sep 2026, then writes:
+Reads raw scrapes, dedupes by media pk, drops carousel children, sponsored
+ads and anything outside the target window, then writes:
 
     data/reels.json   data/posts.json   data/data.csv   data/summary.json
 
 Run:  python3 scripts/process.py
+      python3 scripts/process.py --raw raw/scrape_grid-2024.json \\
+          --start 2024-10-01 --end 2025-10-01 --out data/prior-year
 """
 
+import argparse
 import csv
 import glob
 import json
@@ -17,11 +20,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "raw")
-DATA = os.path.join(ROOT, "data")
-os.makedirs(DATA, exist_ok=True)
 MELB = ZoneInfo("Australia/Melbourne")
-START = datetime(2025, 10, 1, tzinfo=timezone.utc)
-END = datetime(2026, 10, 1, tzinfo=timezone.utc)
 
 HASHTAG = __import__("re").compile(r"#\w+")
 OWNER_ID = "4730946554"  # instagram.com/momuians
@@ -41,9 +40,9 @@ def score(rec):
     )
 
 
-def load_union():
+def load_union(raw_paths):
     best = {}
-    for path in sorted(glob.glob(os.path.join(RAW, "*.json"))):
+    for path in raw_paths:
         for item in json.load(open(path))["media"]:
             pk = item["pk"]
             if pk not in best or score(item) > score(best[pk]):
@@ -51,7 +50,7 @@ def load_union():
     return list(best.values())
 
 
-def clean(item):
+def clean(item, start, end):
     if item.get("product_type") in ("carousel_item", "ad"):
         return None
     # the DOM sweep also picks up recommended reels from other accounts
@@ -60,7 +59,7 @@ def clean(item):
     if not item.get("date"):
         return None
     dt = datetime.fromisoformat(item["date"].replace("Z", "+00:00"))
-    if not (START <= dt < END):
+    if not (start <= dt < end):
         return None
 
     local = dt.astimezone(MELB)
@@ -108,7 +107,7 @@ def _mean(xs):
     return round(sum(xs) / len(xs)) if xs else None
 
 
-def write_summary(rows, reels, posts, meta):
+def write_summary(rows, reels, posts, meta, data_dir):
     from statistics import median
 
     months = sorted({r["month"] for r in rows})
@@ -176,12 +175,26 @@ def write_summary(rows, reels, posts, meta):
         "top_reels": [slim(r) for r in sorted(reels, key=lambda x: -(x["views"] or 0))[:5]],
         "top_posts": [slim(p) for p in sorted(posts, key=lambda x: -x["likes"])[:5]],
     }
-    with open(os.path.join(DATA, "summary.json"), "w") as f:
+    with open(os.path.join(data_dir, "summary.json"), "w") as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
 
 
 def main():
-    rows = [c for c in (clean(i) for i in load_union()) if c]
+    p = argparse.ArgumentParser()
+    p.add_argument("--raw", nargs="+", default=None, help="raw scrape files (default: raw/*.json)")
+    p.add_argument("--start", default="2025-10-01", help="window start, inclusive (YYYY-MM-DD)")
+    p.add_argument("--end", default="2026-10-01", help="window end, exclusive (YYYY-MM-DD)")
+    p.add_argument("--out", default="data", help="output directory, relative to the repo root")
+    p.add_argument("--source", default="instagram.com/momuians public grid + reels tab, scraped 2026-09-07")
+    args = p.parse_args()
+
+    raw_paths = args.raw or sorted(glob.glob(os.path.join(RAW, "*.json")))
+    start = datetime.fromisoformat(args.start).replace(tzinfo=timezone.utc)
+    end = datetime.fromisoformat(args.end).replace(tzinfo=timezone.utc)
+    data_dir = os.path.join(ROOT, args.out)
+    os.makedirs(data_dir, exist_ok=True)
+
+    rows = [c for c in (clean(i, start, end) for i in load_union(raw_paths)) if c]
     rows.sort(key=lambda r: r["datetime_utc"])
 
     reels = [r for r in rows if r["type"] == "reel"]
@@ -189,14 +202,14 @@ def main():
 
     meta = {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "window": "2025-10-01 to 2026-09-30",
-        "source": "instagram.com/momuians public grid + reels tab, scraped 2026-09-07",
+        "window": f"{args.start} to {(end - timedelta(days=1)).strftime('%Y-%m-%d')}",
+        "source": args.source,
         "count": len(rows),
     }
 
-    with open(os.path.join(DATA, "reels.json"), "w") as f:
+    with open(os.path.join(data_dir, "reels.json"), "w") as f:
         json.dump({**meta, "count": len(reels), "reels": reels}, f, indent=2, ensure_ascii=False)
-    with open(os.path.join(DATA, "posts.json"), "w") as f:
+    with open(os.path.join(data_dir, "posts.json"), "w") as f:
         json.dump({**meta, "count": len(posts), "posts": posts}, f, indent=2, ensure_ascii=False)
 
     cols = [
@@ -205,13 +218,13 @@ def main():
         "caption_length", "hashtag_count", "likes", "comments", "views",
         "interactions", "engagement_per_view", "caption",
     ]
-    with open(os.path.join(DATA, "data.csv"), "w", newline="") as f:
+    with open(os.path.join(data_dir, "data.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
         for r in rows:
             w.writerow({**r, "caption": r["caption"].replace("\n", " ").strip()})
 
-    write_summary(rows, reels, posts, meta)
+    write_summary(rows, reels, posts, meta, data_dir)
 
     span_days = (
         datetime.fromisoformat(rows[-1]["datetime_utc"].replace("Z", "+00:00"))
@@ -220,7 +233,7 @@ def main():
     print(f"reels {len(reels)}  posts {len(posts)}  total {len(rows)}")
     print(f"span  {rows[0]['date']} -> {rows[-1]['date']}  ({span_days} days)")
     print(f"reels with views: {sum(1 for r in reels if r['views'])}/{len(reels)}")
-    print("wrote data/: reels.json, posts.json, data.csv, summary.json")
+    print(f"wrote {args.out}/: reels.json, posts.json, data.csv, summary.json")
 
 
 if __name__ == "__main__":

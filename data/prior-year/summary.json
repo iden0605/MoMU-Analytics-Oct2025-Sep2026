@@ -1,0 +1,1024 @@
+{
+  "generated": "2026-09-17T11:13:48Z",
+  "window": "2024-10-01 to 2025-09-30",
+  "source": "instagram.com/momuians profile grid + reels tab, scraped via HAR capture 2026-09-17",
+  "count": 142,
+  "headline": {
+    "reels": 98,
+    "posts": 44,
+    "first": "2024-10-03",
+    "last": "2025-09-29",
+    "total_reel_views": 676424,
+    "avg_reel_views": 6902,
+    "median_reel_views": 6628,
+    "total_interactions": 13908,
+    "avg_engagement_rate": 0.0153
+  },
+  "reels_timeline": [
+    {
+      "date": "2024-10-03",
+      "views": 4768,
+      "interactions": 100
+    },
+    {
+      "date": "2024-10-07",
+      "views": 5089,
+      "interactions": 65
+    },
+    {
+      "date": "2024-10-09",
+      "views": 8260,
+      "interactions": 137
+    },
+    {
+      "date": "2024-10-11",
+      "views": 6350,
+      "interactions": 118
+    },
+    {
+      "date": "2024-10-14",
+      "views": 5838,
+      "interactions": 58
+    },
+    {
+      "date": "2024-10-16",
+      "views": 8620,
+      "interactions": 105
+    },
+    {
+      "date": "2024-10-21",
+      "views": 8248,
+      "interactions": 152
+    },
+    {
+      "date": "2024-10-24",
+      "views": 5177,
+      "interactions": 127
+    },
+    {
+      "date": "2024-11-03",
+      "views": 5949,
+      "interactions": 102
+    },
+    {
+      "date": "2024-11-13",
+      "views": 4157,
+      "interactions": 72
+    },
+    {
+      "date": "2024-12-11",
+      "views": 4275,
+      "interactions": 92
+    },
+    {
+      "date": "2024-12-19",
+      "views": 3634,
+      "interactions": 72
+    },
+    {
+      "date": "2024-12-24",
+      "views": 3464,
+      "interactions": 105
+    },
+    {
+      "date": "2024-12-31",
+      "views": 4515,
+      "interactions": 78
+    },
+    {
+      "date": "2025-01-26",
+      "views": 2690,
+      "interactions": 65
+    },
+    {
+      "date": "2025-01-30",
+      "views": 2734,
+      "interactions": 103
+    },
+    {
+      "date": "2025-02-03",
+      "views": 4227,
+      "interactions": 96
+    },
+    {
+      "date": "2025-02-06",
+      "views": 4909,
+      "interactions": 66
+    },
+    {
+      "date": "2025-02-10",
+      "views": 4174,
+      "interactions": 73
+    },
+    {
+      "date": "2025-02-15",
+      "views": 8828,
+      "interactions": 80
+    },
+    {
+      "date": "2025-02-17",
+      "views": 6970,
+      "interactions": 98
+    },
+    {
+      "date": "2025-02-19",
+      "views": 4561,
+      "interactions": 76
+    },
+    {
+      "date": "2025-02-21",
+      "views": 7432,
+      "interactions": 114
+    },
+    {
+      "date": "2025-02-23",
+      "views": 5523,
+      "interactions": 86
+    },
+    {
+      "date": "2025-02-24",
+      "views": 6590,
+      "interactions": 94
+    },
+    {
+      "date": "2025-02-25",
+      "views": 4812,
+      "interactions": 66
+    },
+    {
+      "date": "2025-02-26",
+      "views": 6154,
+      "interactions": 83
+    },
+    {
+      "date": "2025-02-27",
+      "views": 6127,
+      "interactions": 98
+    },
+    {
+      "date": "2025-03-01",
+      "views": 6907,
+      "interactions": 66
+    },
+    {
+      "date": "2025-03-02",
+      "views": 6873,
+      "interactions": 175
+    },
+    {
+      "date": "2025-03-03",
+      "views": 8183,
+      "interactions": 87
+    },
+    {
+      "date": "2025-03-05",
+      "views": 7072,
+      "interactions": 97
+    },
+    {
+      "date": "2025-03-09",
+      "views": 4071,
+      "interactions": 83
+    },
+    {
+      "date": "2025-03-14",
+      "views": 5362,
+      "interactions": 83
+    },
+    {
+      "date": "2025-03-15",
+      "views": 7000,
+      "interactions": 85
+    },
+    {
+      "date": "2025-03-18",
+      "views": 10472,
+      "interactions": 77
+    },
+    {
+      "date": "2025-03-20",
+      "views": 7437,
+      "interactions": 72
+    },
+    {
+      "date": "2025-03-23",
+      "views": 7503,
+      "interactions": 99
+    },
+    {
+      "date": "2025-03-25",
+      "views": 8088,
+      "interactions": 146
+    },
+    {
+      "date": "2025-03-27",
+      "views": 5202,
+      "interactions": 70
+    },
+    {
+      "date": "2025-03-30",
+      "views": 8053,
+      "interactions": 70
+    },
+    {
+      "date": "2025-04-01",
+      "views": 3870,
+      "interactions": 49
+    },
+    {
+      "date": "2025-04-02",
+      "views": 7023,
+      "interactions": 112
+    },
+    {
+      "date": "2025-04-05",
+      "views": 8862,
+      "interactions": 125
+    },
+    {
+      "date": "2025-04-08",
+      "views": 4209,
+      "interactions": 80
+    },
+    {
+      "date": "2025-04-09",
+      "views": 6382,
+      "interactions": 101
+    },
+    {
+      "date": "2025-04-11",
+      "views": 9688,
+      "interactions": 91
+    },
+    {
+      "date": "2025-04-13",
+      "views": 8778,
+      "interactions": 233
+    },
+    {
+      "date": "2025-04-16",
+      "views": 3710,
+      "interactions": 78
+    },
+    {
+      "date": "2025-04-18",
+      "views": 6395,
+      "interactions": 101
+    },
+    {
+      "date": "2025-04-28",
+      "views": 16889,
+      "interactions": 222
+    },
+    {
+      "date": "2025-04-30",
+      "views": 16679,
+      "interactions": 153
+    },
+    {
+      "date": "2025-05-01",
+      "views": 16125,
+      "interactions": 113
+    },
+    {
+      "date": "2025-05-02",
+      "views": 7822,
+      "interactions": 144
+    },
+    {
+      "date": "2025-05-04",
+      "views": 4279,
+      "interactions": 57
+    },
+    {
+      "date": "2025-05-05",
+      "views": 5607,
+      "interactions": 131
+    },
+    {
+      "date": "2025-05-07",
+      "views": 6621,
+      "interactions": 91
+    },
+    {
+      "date": "2025-05-08",
+      "views": 8884,
+      "interactions": 120
+    },
+    {
+      "date": "2025-05-13",
+      "views": 4987,
+      "interactions": 111
+    },
+    {
+      "date": "2025-05-14",
+      "views": 9255,
+      "interactions": 97
+    },
+    {
+      "date": "2025-05-21",
+      "views": 8143,
+      "interactions": 131
+    },
+    {
+      "date": "2025-05-25",
+      "views": 7054,
+      "interactions": 117
+    },
+    {
+      "date": "2025-06-01",
+      "views": 8678,
+      "interactions": 130
+    },
+    {
+      "date": "2025-06-03",
+      "views": 8645,
+      "interactions": 73
+    },
+    {
+      "date": "2025-06-07",
+      "views": 5001,
+      "interactions": 100
+    },
+    {
+      "date": "2025-06-09",
+      "views": 8237,
+      "interactions": 87
+    },
+    {
+      "date": "2025-06-14",
+      "views": 9884,
+      "interactions": 289
+    },
+    {
+      "date": "2025-06-20",
+      "views": 9506,
+      "interactions": 125
+    },
+    {
+      "date": "2025-06-29",
+      "views": 6087,
+      "interactions": 73
+    },
+    {
+      "date": "2025-07-06",
+      "views": 8112,
+      "interactions": 109
+    },
+    {
+      "date": "2025-07-14",
+      "views": 10292,
+      "interactions": 116
+    },
+    {
+      "date": "2025-07-15",
+      "views": 9059,
+      "interactions": 66
+    },
+    {
+      "date": "2025-07-20",
+      "views": 11848,
+      "interactions": 148
+    },
+    {
+      "date": "2025-07-22",
+      "views": 6514,
+      "interactions": 58
+    },
+    {
+      "date": "2025-07-23",
+      "views": 6914,
+      "interactions": 81
+    },
+    {
+      "date": "2025-07-24",
+      "views": 5262,
+      "interactions": 61
+    },
+    {
+      "date": "2025-07-30",
+      "views": 6778,
+      "interactions": 74
+    },
+    {
+      "date": "2025-08-03",
+      "views": 10494,
+      "interactions": 103
+    },
+    {
+      "date": "2025-08-08",
+      "views": 6280,
+      "interactions": 105
+    },
+    {
+      "date": "2025-08-13",
+      "views": 7768,
+      "interactions": 110
+    },
+    {
+      "date": "2025-08-20",
+      "views": 6619,
+      "interactions": 65
+    },
+    {
+      "date": "2025-08-21",
+      "views": 4184,
+      "interactions": 42
+    },
+    {
+      "date": "2025-08-23",
+      "views": 5971,
+      "interactions": 76
+    },
+    {
+      "date": "2025-08-26",
+      "views": 4200,
+      "interactions": 55
+    },
+    {
+      "date": "2025-08-28",
+      "views": 3860,
+      "interactions": 77
+    },
+    {
+      "date": "2025-08-30",
+      "views": 6011,
+      "interactions": 92
+    },
+    {
+      "date": "2025-09-04",
+      "views": 7646,
+      "interactions": 91
+    },
+    {
+      "date": "2025-09-06",
+      "views": 6743,
+      "interactions": 83
+    },
+    {
+      "date": "2025-09-08",
+      "views": 7157,
+      "interactions": 115
+    },
+    {
+      "date": "2025-09-11",
+      "views": 4823,
+      "interactions": 59
+    },
+    {
+      "date": "2025-09-13",
+      "views": 6635,
+      "interactions": 106
+    },
+    {
+      "date": "2025-09-16",
+      "views": 4674,
+      "interactions": 55
+    },
+    {
+      "date": "2025-09-18",
+      "views": 10319,
+      "interactions": 106
+    },
+    {
+      "date": "2025-09-19",
+      "views": 7280,
+      "interactions": 88
+    },
+    {
+      "date": "2025-09-21",
+      "views": 4873,
+      "interactions": 93
+    },
+    {
+      "date": "2025-09-23",
+      "views": 8424,
+      "interactions": 108
+    },
+    {
+      "date": "2025-09-26",
+      "views": 3802,
+      "interactions": 53
+    },
+    {
+      "date": "2025-09-29",
+      "views": 10284,
+      "interactions": 258
+    }
+  ],
+  "posts_timeline": [
+    {
+      "date": "2024-10-09",
+      "likes": 26,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2024-10-28",
+      "likes": 75,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2024-10-31",
+      "likes": 49,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2024-12-25",
+      "likes": 55,
+      "comments": 1,
+      "format": "image"
+    },
+    {
+      "date": "2024-12-26",
+      "likes": 25,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-01-18",
+      "likes": 57,
+      "comments": 3,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-01-29",
+      "likes": 58,
+      "comments": 1,
+      "format": "image"
+    },
+    {
+      "date": "2025-02-07",
+      "likes": 82,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-02-12",
+      "likes": 82,
+      "comments": 1,
+      "format": "image"
+    },
+    {
+      "date": "2025-02-22",
+      "likes": 54,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-03-08",
+      "likes": 161,
+      "comments": 0,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-03-10",
+      "likes": 143,
+      "comments": 0,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-03-12",
+      "likes": 94,
+      "comments": 0,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-03-16",
+      "likes": 126,
+      "comments": 1,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-03-31",
+      "likes": 82,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-04-04",
+      "likes": 42,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-04-25",
+      "likes": 86,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-04-27",
+      "likes": 142,
+      "comments": 3,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-04-29",
+      "likes": 123,
+      "comments": 4,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-04-30",
+      "likes": 64,
+      "comments": 3,
+      "format": "image"
+    },
+    {
+      "date": "2025-05-03",
+      "likes": 163,
+      "comments": 7,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-05-12",
+      "likes": 146,
+      "comments": 4,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-05-28",
+      "likes": 67,
+      "comments": 2,
+      "format": "image"
+    },
+    {
+      "date": "2025-06-02",
+      "likes": 84,
+      "comments": 6,
+      "format": "image"
+    },
+    {
+      "date": "2025-06-12",
+      "likes": 48,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-06-14",
+      "likes": 56,
+      "comments": 2,
+      "format": "image"
+    },
+    {
+      "date": "2025-07-16",
+      "likes": 72,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-07-31",
+      "likes": 96,
+      "comments": 1,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-08-04",
+      "likes": 143,
+      "comments": 10,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-08-10",
+      "likes": 113,
+      "comments": 19,
+      "format": "image"
+    },
+    {
+      "date": "2025-08-12",
+      "likes": 326,
+      "comments": 17,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-08-19",
+      "likes": 39,
+      "comments": 7,
+      "format": "image"
+    },
+    {
+      "date": "2025-08-27",
+      "likes": 64,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-08-31",
+      "likes": 98,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-09-03",
+      "likes": 77,
+      "comments": 5,
+      "format": "image"
+    },
+    {
+      "date": "2025-09-10",
+      "likes": 47,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-09-16",
+      "likes": 64,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-09-18",
+      "likes": 155,
+      "comments": 0,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-09-18",
+      "likes": 69,
+      "comments": 0,
+      "format": "image"
+    },
+    {
+      "date": "2025-09-22",
+      "likes": 137,
+      "comments": 0,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-09-27",
+      "likes": 84,
+      "comments": 1,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-09-27",
+      "likes": 82,
+      "comments": 3,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-09-27",
+      "likes": 94,
+      "comments": 5,
+      "format": "carousel"
+    },
+    {
+      "date": "2025-09-27",
+      "likes": 74,
+      "comments": 0,
+      "format": "carousel"
+    }
+  ],
+  "by_month": [
+    {
+      "month": "2024-10",
+      "reels": 8,
+      "posts": 3,
+      "avg_reel_views": 6544,
+      "avg_reel_likes": 106,
+      "avg_post_likes": 50
+    },
+    {
+      "month": "2024-11",
+      "reels": 2,
+      "posts": 0,
+      "avg_reel_views": 5053,
+      "avg_reel_likes": 86,
+      "avg_post_likes": null
+    },
+    {
+      "month": "2024-12",
+      "reels": 4,
+      "posts": 2,
+      "avg_reel_views": 3972,
+      "avg_reel_likes": 83,
+      "avg_post_likes": 40
+    },
+    {
+      "month": "2025-01",
+      "reels": 2,
+      "posts": 2,
+      "avg_reel_views": 2712,
+      "avg_reel_likes": 78,
+      "avg_post_likes": 58
+    },
+    {
+      "month": "2025-02",
+      "reels": 12,
+      "posts": 3,
+      "avg_reel_views": 5859,
+      "avg_reel_likes": 81,
+      "avg_post_likes": 73
+    },
+    {
+      "month": "2025-03",
+      "reels": 13,
+      "posts": 5,
+      "avg_reel_views": 7094,
+      "avg_reel_likes": 90,
+      "avg_post_likes": 121
+    },
+    {
+      "month": "2025-04",
+      "reels": 11,
+      "posts": 5,
+      "avg_reel_views": 8408,
+      "avg_reel_likes": 118,
+      "avg_post_likes": 91
+    },
+    {
+      "month": "2025-05",
+      "reels": 10,
+      "posts": 3,
+      "avg_reel_views": 7878,
+      "avg_reel_likes": 104,
+      "avg_post_likes": 125
+    },
+    {
+      "month": "2025-06",
+      "reels": 7,
+      "posts": 3,
+      "avg_reel_views": 8005,
+      "avg_reel_likes": 123,
+      "avg_post_likes": 63
+    },
+    {
+      "month": "2025-07",
+      "reels": 8,
+      "posts": 2,
+      "avg_reel_views": 8097,
+      "avg_reel_likes": 86,
+      "avg_post_likes": 84
+    },
+    {
+      "month": "2025-08",
+      "reels": 9,
+      "posts": 6,
+      "avg_reel_views": 6154,
+      "avg_reel_likes": 74,
+      "avg_post_likes": 130
+    },
+    {
+      "month": "2025-09",
+      "reels": 12,
+      "posts": 10,
+      "avg_reel_views": 6888,
+      "avg_reel_likes": 95,
+      "avg_post_likes": 88
+    }
+  ],
+  "day_of_week": [
+    {
+      "day": "Monday",
+      "avg_views": 7699,
+      "n": 14
+    },
+    {
+      "day": "Tuesday",
+      "avg_views": 6138,
+      "n": 14
+    },
+    {
+      "day": "Wednesday",
+      "avg_views": 7166,
+      "n": 18
+    },
+    {
+      "day": "Thursday",
+      "avg_views": 6318,
+      "n": 16
+    },
+    {
+      "day": "Friday",
+      "avg_views": 6992,
+      "n": 10
+    },
+    {
+      "day": "Saturday",
+      "avg_views": 7184,
+      "n": 10
+    },
+    {
+      "day": "Sunday",
+      "avg_views": 6929,
+      "n": 16
+    }
+  ],
+  "format_split": {
+    "carousel": {
+      "n": 18,
+      "avg_likes": 130
+    },
+    "single": {
+      "n": 26,
+      "avg_likes": 65
+    }
+  },
+  "top_reels": [
+    {
+      "date": "2025-04-28",
+      "type": "reel",
+      "format": "video",
+      "views": 16889,
+      "likes": 211,
+      "comments": 11,
+      "url": "https://www.instagram.com/reel/DI_Hvf4ywYo/",
+      "caption": ""
+    },
+    {
+      "date": "2025-04-30",
+      "type": "reel",
+      "format": "video",
+      "views": 16679,
+      "likes": 148,
+      "comments": 5,
+      "url": "https://www.instagram.com/reel/DJEUNaTRcHU/",
+      "caption": ""
+    },
+    {
+      "date": "2025-05-01",
+      "type": "reel",
+      "format": "video",
+      "views": 16125,
+      "likes": 109,
+      "comments": 4,
+      "url": "https://www.instagram.com/reel/DJG8ZWTShKP/",
+      "caption": ""
+    },
+    {
+      "date": "2025-07-20",
+      "type": "reel",
+      "format": "video",
+      "views": 11848,
+      "likes": 148,
+      "comments": 0,
+      "url": "https://www.instagram.com/reel/DMU3AkqRwlq/",
+      "caption": ""
+    },
+    {
+      "date": "2025-08-03",
+      "type": "reel",
+      "format": "video",
+      "views": 10494,
+      "likes": 100,
+      "comments": 3,
+      "url": "https://www.instagram.com/reel/DM4SL5aRTg-/",
+      "caption": ""
+    }
+  ],
+  "top_posts": [
+    {
+      "date": "2025-08-12",
+      "type": "post",
+      "format": "carousel",
+      "views": null,
+      "likes": 326,
+      "comments": 17,
+      "url": "https://www.instagram.com/p/DNQYrgTPI19/",
+      "caption": "introducing our 24/25 MoMU committee with all smiles! 🤩⭐️ this year we are so blessed to have such a talented board of executives, directors"
+    },
+    {
+      "date": "2025-05-03",
+      "type": "post",
+      "format": "carousel",
+      "views": null,
+      "likes": 163,
+      "comments": 7,
+      "url": "https://www.instagram.com/p/DJLpwkzvMoG/",
+      "caption": "MoMU Easter Camp 2025 Photo Dump!! 🏕️⭐️ do u spot urself there?? 😚 we hope u had the best time at our camp this year as much as we had hosti"
+    },
+    {
+      "date": "2025-03-08",
+      "type": "post",
+      "format": "carousel",
+      "views": null,
+      "likes": 161,
+      "comments": 0,
+      "url": "https://www.instagram.com/p/DG7m7TCvQvn/",
+      "caption": "SUMMERFEST PHOTO RECAP 2025 ☀️🌴 , it was amazing seeing all your wonderful faces there MoMUians!! till next time 🤩💫  #summerfest #umsu #expl"
+    },
+    {
+      "date": "2025-09-18",
+      "type": "post",
+      "format": "carousel",
+      "views": null,
+      "likes": 155,
+      "comments": 0,
+      "url": "https://www.instagram.com/p/DOuUx38E856/",
+      "caption": "it’s time to reminisce on the sparkliest event of the year! 🛥️ 🪩 here’s a recap of all the good mems captured during our MoMU x SSS glitz an"
+    },
+    {
+      "date": "2025-05-12",
+      "type": "post",
+      "format": "carousel",
+      "views": null,
+      "likes": 146,
+      "comments": 4,
+      "url": "https://www.instagram.com/p/DJjFY37PCwv/",
+      "caption": "Introducing MoMU’s 2025 Sponsors!! 🤩💫 We hope you enjoy using exclusive perks from our partners ❤️   #momuians #sponsors #momu #explorepage "
+    }
+  ]
+}

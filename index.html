@@ -171,6 +171,63 @@
       font-variant-numeric: tabular-nums;
     }
 
+    /* ---- table of contents ---- */
+    .toc {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .toc .label {
+      font-size: 0.72rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 14px;
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 40px;
+    }
+
+    .toc li {
+      counter-increment: toc;
+    }
+
+    .toc li:nth-last-child(-n+2) a {
+      border-bottom: none;
+    }
+
+    .toc a {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--rule);
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.15s, padding-left 0.15s;
+    }
+
+    .toc a::before {
+      content: counter(toc, decimal-leading-zero);
+      flex-shrink: 0;
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: var(--ochre);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .toc a:hover {
+      color: var(--ink);
+      padding-left: 6px;
+    }
+
     /* ---- sections ---- */
     section {
       padding: 66px 0;
@@ -262,6 +319,87 @@
 
     .ledger .say b {
       color: var(--ink);
+    }
+
+    /* ---- year-over-year comparison ---- */
+    .compare {
+      margin-top: 40px;
+      border-top: 2px solid var(--ink);
+    }
+
+    .compare .row {
+      display: grid;
+      grid-template-columns: minmax(0, 11rem) 1fr auto;
+      gap: 8px 24px;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .compare .metric {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+
+    .compare .years {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .compare .yr {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .compare .yr .fig {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-faint);
+    }
+
+    .compare .yr .fig.now {
+      color: var(--ochre);
+    }
+
+    .compare .yr .fig .unit {
+      font-size: 0.75rem;
+      letter-spacing: 0;
+      margin-left: 1px;
+    }
+
+    .compare .yr .lbl {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .compare .sep {
+      color: var(--ink-faint);
+      font-size: 1rem;
+    }
+
+    .compare .delta {
+      font-size: 0.92rem;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-soft);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .compare .note {
+      grid-column: 1 / -1;
+      font-size: 0.85rem;
+      color: var(--ink-faint);
+      margin-top: -6px;
     }
 
     /* ---- figure / chart ---- */
@@ -460,6 +598,18 @@
         padding: 60px 0 46px;
       }
 
+      .toc ol {
+        grid-template-columns: 1fr;
+      }
+
+      .toc li:nth-last-child(-n+2) a {
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .toc li:last-child a {
+        border-bottom: none;
+      }
+
       section {
         padding: 50px 0;
       }
@@ -468,6 +618,16 @@
         grid-template-columns: 1fr;
         gap: 4px;
         padding: 18px 0;
+      }
+
+      .compare .row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 16px 0;
+      }
+
+      .compare .delta {
+        text-align: left;
       }
 
       .plot.tall {
@@ -518,7 +678,21 @@
       </div>
     </header>
 
-    <section>
+    <nav class="toc">
+      <div class="label">In this report</div>
+      <ol>
+        <li><a href="#big-numbers">The big numbers</a></li>
+        <li><a href="#reels">How the reels did</a></li>
+        <li><a href="#cadence">Did posting more often help</a></li>
+        <li><a href="#spotlight">The two great posts</a></li>
+        <li><a href="#posts">How the posts did</a></li>
+        <li><a href="#day">Does the day matter</a></li>
+        <li><a href="#compare">How this year compares</a></li>
+        <li><a href="#next">What to try next</a></li>
+      </ol>
+    </nav>
+
+    <section id="big-numbers">
       <h2>The big numbers</h2>
       <div class="ledger">
         <div class="row">
@@ -533,20 +707,20 @@
         </div>
         <div class="row">
           <div class="fig num">2.2<span class="unit">%</span></div>
-          <div class="say">Of the people who watch a reel, this many <b>like or comment</b>. It has stayed about the
-            same all year.</div>
+          <div class="say"><b>Average likes and comments</b> over views per reel.</div>
         </div>
         <div class="row">
           <div class="fig num">18.7<span class="unit">k</span></div>
-          <div class="say">Views on our <b>best reel</b>, from 11 August.</div>
+          <div class="say">Views on our <b>best reel</b>, from 11 August. The 23 January one was almost level with it.
+          </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="reels">
       <h2>How the reels did</h2>
-      <p>Each bar is one reel, in the order we posted them. The three biggest are marked in <span
-          class="anno-dot"></span> ochre.</p>
+      <p>Reels get seen far more than posts do. Each bar is one reel, in the order we posted them. The three biggest are
+        marked in <span class="anno-dot"></span> ochre.</p>
       <figure>
         <div class="figure-head">
           <div class="cap">Views per reel, October 2025 to September 2026</div>
@@ -555,12 +729,11 @@
         <div class="plot tall"><canvas id="reelViews"></canvas></div>
         <figcaption>We started the year well, with reels in October and November often getting <b>8,000 to 14,000
             views</b>. Over autumn and winter that dropped to more like <b>4,000 to 5,000</b>, then picked back up in
-          August. Two reels did much better than everything else, one in January and one in August. See below for more
-          information.</figcaption>
+          August. Two reels did much better than everything else, one in January and one in August.</figcaption>
       </figure>
     </section>
 
-    <section>
+    <section id="cadence">
       <h2>Did posting more often help</h2>
       <p>We posted a lot more in some months than others, it did not make a big difference.</p>
       <figure>
@@ -569,15 +742,15 @@
           <div class="sub">bars are the count, the line is average views that month</div>
         </div>
         <div class="plot mid"><canvas id="cadence"></canvas></div>
-        <figcaption>April to June was our busiest months, <b>29 reels</b> in three months. The quieter months from
-          October to January averaged closer to <b>7,700</b>. Posting more often meant each reel got seen less. Over
-          the year we did <b>about two reels a week</b>, and six in our busiest week.</figcaption>
+        <figcaption>April to June was our busiest run, <b>29 reels</b> in three months, and also our worst, averaging
+          about <b>5,400 views</b>. The quieter months from October to January averaged closer to <b>7,700</b>. Posting
+          more often just meant each reel got seen less. Over the year we did <b>about two reels a week</b>, and six in
+          our busiest week.</figcaption>
       </figure>
     </section>
 
-    <section>
-      <h2>The two reels that did really well</h2>
-      <p>These two reels went far past anything else this year, whereas both were quick and simple.</p>
+    <section id="spotlight">
+      <h2>The two great posts</h2>
       <div class="spotlight">
         <article>
           <div class="when">Posted 11 August 2026</div>
@@ -621,8 +794,9 @@
       </div>
     </section>
 
-    <section>
+    <section id="posts">
       <h2>How the posts did</h2>
+      <p>Posts get seen by fewer people than reels.</p>
       <figure>
         <div class="figure-head">
           <div class="cap">Likes per post</div>
@@ -639,13 +813,15 @@
           <div class="sub">average likes per post</div>
         </div>
         <div class="plot mid"><canvas id="format"></canvas></div>
-        <figcaption>Carousels got <b>more than double</b> the likes of single images, 170 against 80 on average.
-        </figcaption>
+        <figcaption>Carousels got <b>more than double</b> the likes of single images, 170 against 80 on average. They
+          are worth the extra effort.</figcaption>
       </figure>
     </section>
 
-    <section>
+    <section id="day">
       <h2>Does the day matter</h2>
+      <p>Average reel views by the day of the week we posted. Some days only have a few reels behind them, so this is
+        rough.</p>
       <figure>
         <div class="figure-head">
           <div class="cap">Average reel views by day of week</div>
@@ -657,41 +833,121 @@
       </figure>
     </section>
 
-    <section>
+    <section id="compare">
+      <h2>How this year compares</h2>
+      <p>Statistics from October 2024 to September 2025 were also collected. Below shows how this year compares to that
+        year.</p>
+      <div class="compare">
+        <div class="row">
+          <div class="metric">Reels posted</div>
+          <div class="years">
+            <div class="yr"><span class="fig now">88</span><span class="lbl">This year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig">98</span><span class="lbl">Last year</span></div>
+          </div>
+          <div class="delta">-10%</div>
+        </div>
+        <div class="row">
+          <div class="metric">Posts</div>
+          <div class="years">
+            <div class="yr"><span class="fig now">46</span><span class="lbl">This year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig">44</span><span class="lbl">Last year</span></div>
+          </div>
+          <div class="delta">+5%</div>
+        </div>
+        <div class="row">
+          <div class="metric">Views per reel, on average</div>
+          <div class="years">
+            <div class="yr"><span class="fig now num">6,748</span><span class="lbl">This year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig num">6,902</span><span class="lbl">Last year</span></div>
+          </div>
+          <div class="delta">-2%</div>
+        </div>
+        <div class="row">
+          <div class="metric">Likes and comments, all up</div>
+          <div class="years">
+            <div class="yr"><span class="fig now num">17,872</span><span class="lbl">This year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig num">13,908</span><span class="lbl">Last year</span></div>
+          </div>
+          <div class="delta">+29%</div>
+        </div>
+        <div class="row">
+          <div class="metric">Engagement rate</div>
+          <div class="years">
+            <div class="yr"><span class="fig now">2.2<span class="unit">%</span></span><span class="lbl">This
+                year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig">1.5<span class="unit">%</span></span><span class="lbl">Last year</span>
+            </div>
+          </div>
+          <div class="delta">+41%</div>
+        </div>
+        <div class="row">
+          <div class="metric">Carousel posts, average likes</div>
+          <div class="years">
+            <div class="yr"><span class="fig now num">170</span><span class="lbl">This year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig num">130</span><span class="lbl">Last year</span></div>
+          </div>
+          <div class="delta">+31%</div>
+        </div>
+      </div>
+      <figure>
+        <div class="figure-head">
+          <div class="cap">Average reel views by month, this year against last year</div>
+          <div class="sub">lined up October to September both years</div>
+        </div>
+        <div class="plot mid"><canvas id="yoy"></canvas></div>
+        <figcaption>The two years took different paths to a similar place. Last year's views built up slowly, from
+          <b>2,700</b> views in January up to <b>8,000</b> by the middle of the year. On the contrary, this year started
+          off strong at nearly <b>11,000</b> in October and drifted down from there before picking back up in August.
+          Average views per reel got a little fewer this year, 6,748 against 6,902, but this year's reels got a lot
+          <b>more
+            likes
+            and comments per reel</b> than last year's did (17,872 against 13,908).
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="next">
       <h2>What to try next</h2>
       <ol class="plan">
         <li>
           <div class="body">
             <h3>Post fewer reels and put more into each one</h3>
-            <p>Two or three good reels a week performed the best, too many reels causes the algorithm to showcase MoMU
-              reels less.</p>
+            <p>Our busiest months were our worst ones. Two or three good reels a week beats one every other day. Give
+              each one a few days before the next goes up.</p>
           </div>
         </li>
         <li>
           <div class="body">
             <h3>Keep reels quick and simple</h3>
-            <p>Both of our best reels were short and funny, nothing heavily edited or choreographed, M team showing
-              their humor is the best.</p>
+            <p>Both of our best reels were short and funny. It is the same story all year. Committee members just being
+              themselves on camera does better than anything that looks staged.</p>
           </div>
         </li>
         <li>
           <div class="body">
             <h3>Use carousels for posts</h3>
-            <p>They get more than double the likes of single photo posts. Recaps, guides and reveals all work well as a
-              swipe, use one whenever there is more than one thing to show.</p>
+            <p>They get more than double the likes of a single photo. Recaps, guides and reveals all work well as a
+              swipe. Use one whenever there is more than one thing to show.</p>
           </div>
         </li>
         <li>
           <div class="body">
             <h3>Aim for midweek</h3>
-            <p>Tuesday to Friday has done better than Monday or the weekend, but not by much.</p>
+            <p>Tuesday to Friday has done better than Monday or the weekend. Not a strict rule, but worth leaning that
+              way when we can.</p>
           </div>
         </li>
         <li>
           <div class="body">
             <h3>Ask people to follow, in the reel</h3>
-            <p>Lots of people who see our reels do not follow us, a simple "follow @momuians for more" on screen and in
-              the caption helps.</p>
+            <p>Lots of people who see our reels do not follow us. A simple "follow @momuians for more" on screen and in
+              the caption is free and it helps.</p>
           </div>
         </li>
       </ol>
@@ -703,13 +959,15 @@
         by Instagram, so the day of the week can be off by a few hours around midnight.</p>
       <p>Not in here: reach, impressions, profile visits, link taps, follower splits and follows. Instagram no longer
         shows these publicly, they are only in the account's own insights.</p>
+      <p>Last year&rsquo;s comparison figures (October 2024 to September 2025) were pulled the same way on 17 September
+        2026.</p>
       <p>MoMU, October 2025 to September 2026.</p>
     </footer>
 
   </div>
 
   <script id="report-data"
-    type="application/json">{"generated": "2026-09-07T09:49:02Z", "window": "2025-10-01 to 2026-09-30", "source": "instagram.com/momuians public grid + reels tab, scraped 2026-09-07", "count": 134, "headline": {"reels": 88, "posts": 46, "first": "2025-10-01", "last": "2026-09-07", "total_reel_views": 593831, "avg_reel_views": 6748, "median_reel_views": 6092, "total_interactions": 17872, "avg_engagement_rate": 0.0216}, "reels_timeline": [{"date": "2025-10-05", "views": 9719, "interactions": 108}, {"date": "2025-10-11", "views": 13886, "interactions": 218}, {"date": "2025-10-21", "views": 11892, "interactions": 156}, {"date": "2025-10-25", "views": 9859, "interactions": 293}, {"date": "2025-10-30", "views": 8639, "interactions": 201}, {"date": "2025-11-02", "views": 12796, "interactions": 151}, {"date": "2025-11-05", "views": 7798, "interactions": 89}, {"date": "2025-11-09", "views": 9267, "interactions": 110}, {"date": "2025-11-13", "views": 8850, "interactions": 135}, {"date": "2025-11-14", "views": 7522, "interactions": 195}, {"date": "2025-11-16", "views": 8654, "interactions": 122}, {"date": "2025-11-19", "views": 6495, "interactions": 93}, {"date": "2025-11-26", "views": 8618, "interactions": 332}, {"date": "2025-12-03", "views": 5315, "interactions": 77}, {"date": "2025-12-10", "views": 7235, "interactions": 139}, {"date": "2025-12-14", "views": 4246, "interactions": 101}, {"date": "2025-12-17", "views": 9198, "interactions": 110}, {"date": "2025-12-19", "views": 5568, "interactions": 137}, {"date": "2025-12-23", "views": 7301, "interactions": 94}, {"date": "2025-12-30", "views": 7130, "interactions": 106}, {"date": "2026-01-08", "views": 9729, "interactions": 113}, {"date": "2026-01-17", "views": 5830, "interactions": 106}, {"date": "2026-01-23", "views": 18372, "interactions": 282}, {"date": "2026-01-31", "views": 3718, "interactions": 101}, {"date": "2026-02-11", "views": 6619, "interactions": 85}, {"date": "2026-02-15", "views": 4064, "interactions": 84}, {"date": "2026-02-18", "views": 4294, "interactions": 86}, {"date": "2026-02-19", "views": 3753, "interactions": 71}, {"date": "2026-02-21", "views": 4888, "interactions": 103}, {"date": "2026-02-23", "views": 5222, "interactions": 94}, {"date": "2026-02-24", "views": 3844, "interactions": 87}, {"date": "2026-02-24", "views": 4883, "interactions": 101}, {"date": "2026-02-25", "views": 6749, "interactions": 111}, {"date": "2026-02-25", "views": 4378, "interactions": 81}, {"date": "2026-02-26", "views": 6896, "interactions": 130}, {"date": "2026-03-02", "views": 7244, "interactions": 119}, {"date": "2026-03-06", "views": 8828, "interactions": 125}, {"date": "2026-03-10", "views": 14928, "interactions": 197}, {"date": "2026-03-13", "views": 5153, "interactions": 89}, {"date": "2026-03-15", "views": 5746, "interactions": 97}, {"date": "2026-03-17", "views": 9903, "interactions": 154}, {"date": "2026-03-20", "views": 6659, "interactions": 97}, {"date": "2026-03-24", "views": 6085, "interactions": 141}, {"date": "2026-03-27", "views": 8925, "interactions": 167}, {"date": "2026-04-02", "views": 5233, "interactions": 104}, {"date": "2026-04-04", "views": 4084, "interactions": 134}, {"date": "2026-04-05", "views": 4094, "interactions": 109}, {"date": "2026-04-07", "views": 2850, "interactions": 103}, {"date": "2026-04-11", "views": 6927, "interactions": 126}, {"date": "2026-04-12", "views": 8445, "interactions": 210}, {"date": "2026-04-17", "views": 4098, "interactions": 96}, {"date": "2026-04-21", "views": 8063, "interactions": 154}, {"date": "2026-04-23", "views": 4184, "interactions": 103}, {"date": "2026-04-26", "views": 4937, "interactions": 131}, {"date": "2026-04-27", "views": 4228, "interactions": 88}, {"date": "2026-04-29", "views": 5709, "interactions": 121}, {"date": "2026-05-02", "views": 5319, "interactions": 112}, {"date": "2026-05-08", "views": 2238, "interactions": 88}, {"date": "2026-05-10", "views": 2466, "interactions": 111}, {"date": "2026-05-11", "views": 2082, "interactions": 77}, {"date": "2026-05-12", "views": 7083, "interactions": 98}, {"date": "2026-05-17", "views": 3030, "interactions": 90}, {"date": "2026-05-19", "views": 6098, "interactions": 222}, {"date": "2026-05-21", "views": 11820, "interactions": 263}, {"date": "2026-05-24", "views": 7350, "interactions": 149}, {"date": "2026-05-29", "views": 4361, "interactions": 232}, {"date": "2026-05-31", "views": 8850, "interactions": 268}, {"date": "2026-06-03", "views": 12408, "interactions": 602}, {"date": "2026-06-06", "views": 5019, "interactions": 137}, {"date": "2026-06-14", "views": 5068, "interactions": 138}, {"date": "2026-06-18", "views": 3970, "interactions": 135}, {"date": "2026-06-21", "views": 4143, "interactions": 86}, {"date": "2026-06-28", "views": 2303, "interactions": 66}, {"date": "2026-07-04", "views": 2401, "interactions": 73}, {"date": "2026-07-09", "views": 5080, "interactions": 96}, {"date": "2026-07-19", "views": 4636, "interactions": 111}, {"date": "2026-07-21", "views": 4579, "interactions": 91}, {"date": "2026-07-26", "views": 4384, "interactions": 84}, {"date": "2026-07-29", "views": 6869, "interactions": 133}, {"date": "2026-08-01", "views": 4957, "interactions": 81}, {"date": "2026-08-03", "views": 4201, "interactions": 78}, {"date": "2026-08-06", "views": 5118, "interactions": 74}, {"date": "2026-08-08", "views": 7287, "interactions": 96}, {"date": "2026-08-11", "views": 18710, "interactions": 227}, {"date": "2026-08-13", "views": 10725, "interactions": 232}, {"date": "2026-08-17", "views": 6986, "interactions": 106}, {"date": "2026-08-30", "views": 8383, "interactions": 162}, {"date": "2026-09-02", "views": 6357, "interactions": 109}], "posts_timeline": [{"date": "2025-10-01", "likes": 102, "comments": 25, "format": "carousel"}, {"date": "2025-10-04", "likes": 74, "comments": 20, "format": "carousel"}, {"date": "2025-10-06", "likes": 110, "comments": 11, "format": "carousel"}, {"date": "2025-10-06", "likes": 55, "comments": 1, "format": "image"}, {"date": "2025-10-20", "likes": 91, "comments": 20, "format": "image"}, {"date": "2025-10-30", "likes": 127, "comments": 27, "format": "image"}, {"date": "2025-11-03", "likes": 76, "comments": 12, "format": "image"}, {"date": "2025-12-25", "likes": 39, "comments": 7, "format": "image"}, {"date": "2026-02-08", "likes": 79, "comments": 13, "format": "image"}, {"date": "2026-02-14", "likes": 91, "comments": 28, "format": "image"}, {"date": "2026-02-17", "likes": 67, "comments": 8, "format": "image"}, {"date": "2026-02-20", "likes": 62, "comments": 14, "format": "image"}, {"date": "2026-02-23", "likes": 69, "comments": 4, "format": "carousel"}, {"date": "2026-03-01", "likes": 106, "comments": 16, "format": "image"}, {"date": "2026-03-04", "likes": 72, "comments": 16, "format": "carousel"}, {"date": "2026-03-09", "likes": 97, "comments": 20, "format": "image"}, {"date": "2026-03-19", "likes": 116, "comments": 12, "format": "carousel"}, {"date": "2026-03-20", "likes": 67, "comments": 9, "format": "image"}, {"date": "2026-03-25", "likes": 51, "comments": 13, "format": "image"}, {"date": "2026-03-31", "likes": 139, "comments": 26, "format": "carousel"}, {"date": "2026-04-01", "likes": 143, "comments": 13, "format": "carousel"}, {"date": "2026-04-15", "likes": 99, "comments": 26, "format": "image"}, {"date": "2026-04-19", "likes": 156, "comments": 18, "format": "image"}, {"date": "2026-04-24", "likes": 163, "comments": 12, "format": "carousel"}, {"date": "2026-04-30", "likes": 122, "comments": 14, "format": "carousel"}, {"date": "2026-05-09", "likes": 153, "comments": 21, "format": "carousel"}, {"date": "2026-05-16", "likes": 95, "comments": 12, "format": "carousel"}, {"date": "2026-05-23", "likes": 388, "comments": 32, "format": "carousel"}, {"date": "2026-05-26", "likes": 67, "comments": 8, "format": "image"}, {"date": "2026-05-28", "likes": 89, "comments": 17, "format": "carousel"}, {"date": "2026-06-09", "likes": 82, "comments": 13, "format": "image"}, {"date": "2026-06-11", "likes": 71, "comments": 10, "format": "image"}, {"date": "2026-06-24", "likes": 192, "comments": 15, "format": "carousel"}, {"date": "2026-07-01", "likes": 96, "comments": 6, "format": "carousel"}, {"date": "2026-07-06", "likes": 69, "comments": 12, "format": "image"}, {"date": "2026-07-17", "likes": 76, "comments": 15, "format": "image"}, {"date": "2026-07-20", "likes": 59, "comments": 12, "format": "image"}, {"date": "2026-07-24", "likes": 51, "comments": 12, "format": "image"}, {"date": "2026-07-27", "likes": 45, "comments": 11, "format": "image"}, {"date": "2026-08-05", "likes": 92, "comments": 17, "format": "image"}, {"date": "2026-08-14", "likes": 779, "comments": 21, "format": "carousel"}, {"date": "2026-08-24", "likes": 89, "comments": 20, "format": "image"}, {"date": "2026-08-31", "likes": 164, "comments": 8, "format": "image"}, {"date": "2026-09-01", "likes": 165, "comments": 11, "format": "carousel"}, {"date": "2026-09-07", "likes": 91, "comments": 10, "format": "image"}, {"date": "2026-09-07", "likes": 19, "comments": 5, "format": "image"}], "by_month": [{"month": "2025-10", "reels": 5, "posts": 6, "avg_reel_views": 10799, "avg_reel_likes": 166, "avg_post_likes": 93}, {"month": "2025-11", "reels": 8, "posts": 1, "avg_reel_views": 8750, "avg_reel_likes": 126, "avg_post_likes": 76}, {"month": "2025-12", "reels": 7, "posts": 1, "avg_reel_views": 6570, "avg_reel_likes": 93, "avg_post_likes": 39}, {"month": "2026-01", "reels": 4, "posts": 0, "avg_reel_views": 9412, "avg_reel_likes": 141, "avg_post_likes": null}, {"month": "2026-02", "reels": 11, "posts": 5, "avg_reel_views": 5054, "avg_reel_likes": 77, "avg_post_likes": 74}, {"month": "2026-03", "reels": 9, "posts": 7, "avg_reel_views": 8163, "avg_reel_likes": 115, "avg_post_likes": 93}, {"month": "2026-04", "reels": 12, "posts": 5, "avg_reel_views": 5238, "avg_reel_likes": 102, "avg_post_likes": 137}, {"month": "2026-05", "reels": 11, "posts": 5, "avg_reel_views": 5518, "avg_reel_likes": 139, "avg_post_likes": 158}, {"month": "2026-06", "reels": 6, "posts": 3, "avg_reel_views": 5485, "avg_reel_likes": 180, "avg_post_likes": 115}, {"month": "2026-07", "reels": 6, "posts": 6, "avg_reel_views": 4658, "avg_reel_likes": 86, "avg_post_likes": 66}, {"month": "2026-08", "reels": 8, "posts": 4, "avg_reel_views": 8296, "avg_reel_likes": 119, "avg_post_likes": 281}, {"month": "2026-09", "reels": 1, "posts": 3, "avg_reel_views": 6357, "avg_reel_likes": 97, "avg_post_likes": 92}], "day_of_week": [{"day": "Monday", "avg_views": 4994, "n": 6}, {"day": "Tuesday", "avg_views": 8096, "n": 14}, {"day": "Wednesday", "avg_views": 7003, "n": 14}, {"day": "Thursday", "avg_views": 7000, "n": 12}, {"day": "Friday", "avg_views": 7172, "n": 10}, {"day": "Saturday", "avg_views": 6181, "n": 12}, {"day": "Sunday", "avg_views": 6129, "n": 20}], "format_split": {"carousel": {"n": 18, "avg_likes": 170}, "single": {"n": 28, "avg_likes": 80}}, "top_reels": [{"date": "2026-08-11", "type": "reel", "format": "video", "views": 18710, "likes": 213, "comments": 14, "url": "https://www.instagram.com/p/Db5O0JAM7fO/", "caption": "Your future in Australia starts here! 🇦🇺 Got questions about visas, work, study or staying post-grad? Come get the clarity you need, connect"}, {"date": "2026-01-23", "type": "reel", "format": "video", "views": 18372, "likes": 271, "comments": 11, "url": "https://www.instagram.com/p/DT2coLaESuK/", "caption": "They made a reel…  #unimelb #student #relatable # university #momuians"}, {"date": "2026-03-10", "type": "reel", "format": "video", "views": 14928, "likes": 179, "comments": 18, "url": "https://www.instagram.com/p/DVslueVDH5Q/", "caption": "Tiga goes crazyyy 👀😭  We hope you enjoyed our summerfest booth, SOS party and Alamak Adventure !! Keep a look out for more exciting events c"}, {"date": "2025-10-11", "type": "reel", "format": "video", "views": 13886, "likes": 196, "comments": 22, "url": "https://www.instagram.com/p/DPqbnXZEXpt/", "caption": "DAY 2 OF OFFICER RECRUITMENT INTERVIEWS HAS ENDED! I hope you enjoy our interview fits as much as we enjoyed your interviews !! Good luck to"}, {"date": "2025-11-02", "type": "reel", "format": "video", "views": 12796, "likes": 119, "comments": 32, "url": "https://www.instagram.com/p/DQjFuhVE6nK/", "caption": "Spill the TEA about MoMU x DES BIGGEST END OF EXAMS PARTY with your friends 🫢‼️  Party details: 📌 District 1 Melbourne 📆 Party with us on 21"}], "top_posts": [{"date": "2026-08-14", "type": "post", "format": "carousel", "views": null, "likes": 779, "comments": 21, "url": "https://www.instagram.com/p/DcA8UbcGion/", "caption": "Finding little pieces of Malaysia around Melbourne 🇲🇾💛 From familiar flavours to familiar places, Melbourne might be more similar to our roo"}, {"date": "2026-05-23", "type": "post", "format": "carousel", "views": null, "likes": 388, "comments": 32, "url": "https://www.instagram.com/p/DYrUsiZGnYp/", "caption": "👏👏 Say hello to our 25/26 MoMU committee!! With so many exciting new faces, we are so glad to have an incredible group of executives, direct"}, {"date": "2026-06-24", "type": "post", "format": "carousel", "views": null, "likes": 192, "comments": 15, "url": "https://www.instagram.com/p/DZ9nwcAm3V4/", "caption": "MoMU’s cruise party is undoubtedly one of the many anticipated events of the year —— did you manage to catch it? 🧐🤨  Here are some pics to r"}, {"date": "2026-09-01", "type": "post", "format": "carousel", "views": null, "likes": 165, "comments": 11, "url": "https://www.instagram.com/p/DcvSo2Ymk0Y/", "caption": "Missing home a little extra lately? 🇲🇾🥹  Here are a few ways to feel a little more at home in Melbourne! From eating your favourite Malaysia"}, {"date": "2026-08-31", "type": "post", "format": "image", "views": null, "likes": 164, "comments": 8, "url": "https://www.instagram.com/p/Dcr-UDCsFSR/", "caption": "A little piece of Malaysia, wherever we go. Today, we celebrate the home that brings us together!  Selamat Hari Merdeka from MoMU! 🇲🇾🤍  #MoM"}]}</script>
+    type="application/json">{"generated": "2026-09-17T11:13:48Z", "window": "2025-10-01 to 2026-09-30", "source": "instagram.com/momuians public grid + reels tab, scraped 2026-09-07", "count": 134, "headline": {"reels": 88, "posts": 46, "first": "2025-10-01", "last": "2026-09-07", "total_reel_views": 593831, "avg_reel_views": 6748, "median_reel_views": 6092, "total_interactions": 17872, "avg_engagement_rate": 0.0216}, "reels_timeline": [{"date": "2025-10-05", "views": 9719, "interactions": 108}, {"date": "2025-10-11", "views": 13886, "interactions": 218}, {"date": "2025-10-21", "views": 11892, "interactions": 156}, {"date": "2025-10-25", "views": 9859, "interactions": 293}, {"date": "2025-10-30", "views": 8639, "interactions": 201}, {"date": "2025-11-02", "views": 12796, "interactions": 151}, {"date": "2025-11-05", "views": 7798, "interactions": 89}, {"date": "2025-11-09", "views": 9267, "interactions": 110}, {"date": "2025-11-13", "views": 8850, "interactions": 135}, {"date": "2025-11-14", "views": 7522, "interactions": 195}, {"date": "2025-11-16", "views": 8654, "interactions": 122}, {"date": "2025-11-19", "views": 6495, "interactions": 93}, {"date": "2025-11-26", "views": 8618, "interactions": 332}, {"date": "2025-12-03", "views": 5315, "interactions": 77}, {"date": "2025-12-10", "views": 7235, "interactions": 139}, {"date": "2025-12-14", "views": 4246, "interactions": 101}, {"date": "2025-12-17", "views": 9198, "interactions": 110}, {"date": "2025-12-19", "views": 5568, "interactions": 137}, {"date": "2025-12-23", "views": 7301, "interactions": 94}, {"date": "2025-12-30", "views": 7130, "interactions": 106}, {"date": "2026-01-08", "views": 9729, "interactions": 113}, {"date": "2026-01-17", "views": 5830, "interactions": 106}, {"date": "2026-01-23", "views": 18372, "interactions": 282}, {"date": "2026-01-31", "views": 3718, "interactions": 101}, {"date": "2026-02-11", "views": 6619, "interactions": 85}, {"date": "2026-02-15", "views": 4064, "interactions": 84}, {"date": "2026-02-18", "views": 4294, "interactions": 86}, {"date": "2026-02-19", "views": 3753, "interactions": 71}, {"date": "2026-02-21", "views": 4888, "interactions": 103}, {"date": "2026-02-23", "views": 5222, "interactions": 94}, {"date": "2026-02-24", "views": 3844, "interactions": 87}, {"date": "2026-02-24", "views": 4883, "interactions": 101}, {"date": "2026-02-25", "views": 6749, "interactions": 111}, {"date": "2026-02-25", "views": 4378, "interactions": 81}, {"date": "2026-02-26", "views": 6896, "interactions": 130}, {"date": "2026-03-02", "views": 7244, "interactions": 119}, {"date": "2026-03-06", "views": 8828, "interactions": 125}, {"date": "2026-03-10", "views": 14928, "interactions": 197}, {"date": "2026-03-13", "views": 5153, "interactions": 89}, {"date": "2026-03-15", "views": 5746, "interactions": 97}, {"date": "2026-03-17", "views": 9903, "interactions": 154}, {"date": "2026-03-20", "views": 6659, "interactions": 97}, {"date": "2026-03-24", "views": 6085, "interactions": 141}, {"date": "2026-03-27", "views": 8925, "interactions": 167}, {"date": "2026-04-02", "views": 5233, "interactions": 104}, {"date": "2026-04-04", "views": 4084, "interactions": 134}, {"date": "2026-04-05", "views": 4094, "interactions": 109}, {"date": "2026-04-07", "views": 2850, "interactions": 103}, {"date": "2026-04-11", "views": 6927, "interactions": 126}, {"date": "2026-04-12", "views": 8445, "interactions": 210}, {"date": "2026-04-17", "views": 4098, "interactions": 96}, {"date": "2026-04-21", "views": 8063, "interactions": 154}, {"date": "2026-04-23", "views": 4184, "interactions": 103}, {"date": "2026-04-26", "views": 4937, "interactions": 131}, {"date": "2026-04-27", "views": 4228, "interactions": 88}, {"date": "2026-04-29", "views": 5709, "interactions": 121}, {"date": "2026-05-02", "views": 5319, "interactions": 112}, {"date": "2026-05-08", "views": 2238, "interactions": 88}, {"date": "2026-05-10", "views": 2466, "interactions": 111}, {"date": "2026-05-11", "views": 2082, "interactions": 77}, {"date": "2026-05-12", "views": 7083, "interactions": 98}, {"date": "2026-05-17", "views": 3030, "interactions": 90}, {"date": "2026-05-19", "views": 6098, "interactions": 222}, {"date": "2026-05-21", "views": 11820, "interactions": 263}, {"date": "2026-05-24", "views": 7350, "interactions": 149}, {"date": "2026-05-29", "views": 4361, "interactions": 232}, {"date": "2026-05-31", "views": 8850, "interactions": 268}, {"date": "2026-06-03", "views": 12408, "interactions": 602}, {"date": "2026-06-06", "views": 5019, "interactions": 137}, {"date": "2026-06-14", "views": 5068, "interactions": 138}, {"date": "2026-06-18", "views": 3970, "interactions": 135}, {"date": "2026-06-21", "views": 4143, "interactions": 86}, {"date": "2026-06-28", "views": 2303, "interactions": 66}, {"date": "2026-07-04", "views": 2401, "interactions": 73}, {"date": "2026-07-09", "views": 5080, "interactions": 96}, {"date": "2026-07-19", "views": 4636, "interactions": 111}, {"date": "2026-07-21", "views": 4579, "interactions": 91}, {"date": "2026-07-26", "views": 4384, "interactions": 84}, {"date": "2026-07-29", "views": 6869, "interactions": 133}, {"date": "2026-08-01", "views": 4957, "interactions": 81}, {"date": "2026-08-03", "views": 4201, "interactions": 78}, {"date": "2026-08-06", "views": 5118, "interactions": 74}, {"date": "2026-08-08", "views": 7287, "interactions": 96}, {"date": "2026-08-11", "views": 18710, "interactions": 227}, {"date": "2026-08-13", "views": 10725, "interactions": 232}, {"date": "2026-08-17", "views": 6986, "interactions": 106}, {"date": "2026-08-30", "views": 8383, "interactions": 162}, {"date": "2026-09-02", "views": 6357, "interactions": 109}], "posts_timeline": [{"date": "2025-10-01", "likes": 102, "comments": 25, "format": "carousel"}, {"date": "2025-10-04", "likes": 74, "comments": 20, "format": "carousel"}, {"date": "2025-10-06", "likes": 110, "comments": 11, "format": "carousel"}, {"date": "2025-10-06", "likes": 55, "comments": 1, "format": "image"}, {"date": "2025-10-20", "likes": 91, "comments": 20, "format": "image"}, {"date": "2025-10-30", "likes": 127, "comments": 27, "format": "image"}, {"date": "2025-11-03", "likes": 76, "comments": 12, "format": "image"}, {"date": "2025-12-25", "likes": 39, "comments": 7, "format": "image"}, {"date": "2026-02-08", "likes": 79, "comments": 13, "format": "image"}, {"date": "2026-02-14", "likes": 91, "comments": 28, "format": "image"}, {"date": "2026-02-17", "likes": 67, "comments": 8, "format": "image"}, {"date": "2026-02-20", "likes": 62, "comments": 14, "format": "image"}, {"date": "2026-02-23", "likes": 69, "comments": 4, "format": "carousel"}, {"date": "2026-03-01", "likes": 106, "comments": 16, "format": "image"}, {"date": "2026-03-04", "likes": 72, "comments": 16, "format": "carousel"}, {"date": "2026-03-09", "likes": 97, "comments": 20, "format": "image"}, {"date": "2026-03-19", "likes": 116, "comments": 12, "format": "carousel"}, {"date": "2026-03-20", "likes": 67, "comments": 9, "format": "image"}, {"date": "2026-03-25", "likes": 51, "comments": 13, "format": "image"}, {"date": "2026-03-31", "likes": 139, "comments": 26, "format": "carousel"}, {"date": "2026-04-01", "likes": 143, "comments": 13, "format": "carousel"}, {"date": "2026-04-15", "likes": 99, "comments": 26, "format": "image"}, {"date": "2026-04-19", "likes": 156, "comments": 18, "format": "image"}, {"date": "2026-04-24", "likes": 163, "comments": 12, "format": "carousel"}, {"date": "2026-04-30", "likes": 122, "comments": 14, "format": "carousel"}, {"date": "2026-05-09", "likes": 153, "comments": 21, "format": "carousel"}, {"date": "2026-05-16", "likes": 95, "comments": 12, "format": "carousel"}, {"date": "2026-05-23", "likes": 388, "comments": 32, "format": "carousel"}, {"date": "2026-05-26", "likes": 67, "comments": 8, "format": "image"}, {"date": "2026-05-28", "likes": 89, "comments": 17, "format": "carousel"}, {"date": "2026-06-09", "likes": 82, "comments": 13, "format": "image"}, {"date": "2026-06-11", "likes": 71, "comments": 10, "format": "image"}, {"date": "2026-06-24", "likes": 192, "comments": 15, "format": "carousel"}, {"date": "2026-07-01", "likes": 96, "comments": 6, "format": "carousel"}, {"date": "2026-07-06", "likes": 69, "comments": 12, "format": "image"}, {"date": "2026-07-17", "likes": 76, "comments": 15, "format": "image"}, {"date": "2026-07-20", "likes": 59, "comments": 12, "format": "image"}, {"date": "2026-07-24", "likes": 51, "comments": 12, "format": "image"}, {"date": "2026-07-27", "likes": 45, "comments": 11, "format": "image"}, {"date": "2026-08-05", "likes": 92, "comments": 17, "format": "image"}, {"date": "2026-08-14", "likes": 779, "comments": 21, "format": "carousel"}, {"date": "2026-08-24", "likes": 89, "comments": 20, "format": "image"}, {"date": "2026-08-31", "likes": 164, "comments": 8, "format": "image"}, {"date": "2026-09-01", "likes": 165, "comments": 11, "format": "carousel"}, {"date": "2026-09-07", "likes": 91, "comments": 10, "format": "image"}, {"date": "2026-09-07", "likes": 19, "comments": 5, "format": "image"}], "by_month": [{"month": "2025-10", "reels": 5, "posts": 6, "avg_reel_views": 10799, "avg_reel_likes": 166, "avg_post_likes": 93}, {"month": "2025-11", "reels": 8, "posts": 1, "avg_reel_views": 8750, "avg_reel_likes": 126, "avg_post_likes": 76}, {"month": "2025-12", "reels": 7, "posts": 1, "avg_reel_views": 6570, "avg_reel_likes": 93, "avg_post_likes": 39}, {"month": "2026-01", "reels": 4, "posts": 0, "avg_reel_views": 9412, "avg_reel_likes": 141, "avg_post_likes": null}, {"month": "2026-02", "reels": 11, "posts": 5, "avg_reel_views": 5054, "avg_reel_likes": 77, "avg_post_likes": 74}, {"month": "2026-03", "reels": 9, "posts": 7, "avg_reel_views": 8163, "avg_reel_likes": 115, "avg_post_likes": 93}, {"month": "2026-04", "reels": 12, "posts": 5, "avg_reel_views": 5238, "avg_reel_likes": 102, "avg_post_likes": 137}, {"month": "2026-05", "reels": 11, "posts": 5, "avg_reel_views": 5518, "avg_reel_likes": 139, "avg_post_likes": 158}, {"month": "2026-06", "reels": 6, "posts": 3, "avg_reel_views": 5485, "avg_reel_likes": 180, "avg_post_likes": 115}, {"month": "2026-07", "reels": 6, "posts": 6, "avg_reel_views": 4658, "avg_reel_likes": 86, "avg_post_likes": 66}, {"month": "2026-08", "reels": 8, "posts": 4, "avg_reel_views": 8296, "avg_reel_likes": 119, "avg_post_likes": 281}, {"month": "2026-09", "reels": 1, "posts": 3, "avg_reel_views": 6357, "avg_reel_likes": 97, "avg_post_likes": 92}], "day_of_week": [{"day": "Monday", "avg_views": 4994, "n": 6}, {"day": "Tuesday", "avg_views": 8096, "n": 14}, {"day": "Wednesday", "avg_views": 7003, "n": 14}, {"day": "Thursday", "avg_views": 7000, "n": 12}, {"day": "Friday", "avg_views": 7172, "n": 10}, {"day": "Saturday", "avg_views": 6181, "n": 12}, {"day": "Sunday", "avg_views": 6129, "n": 20}], "format_split": {"carousel": {"n": 18, "avg_likes": 170}, "single": {"n": 28, "avg_likes": 80}}, "top_reels": [{"date": "2026-08-11", "type": "reel", "format": "video", "views": 18710, "likes": 213, "comments": 14, "url": "https://www.instagram.com/p/Db5O0JAM7fO/", "caption": "Your future in Australia starts here! 🇦🇺 Got questions about visas, work, study or staying post-grad? Come get the clarity you need, connect"}, {"date": "2026-01-23", "type": "reel", "format": "video", "views": 18372, "likes": 271, "comments": 11, "url": "https://www.instagram.com/p/DT2coLaESuK/", "caption": "They made a reel…  #unimelb #student #relatable # university #momuians"}, {"date": "2026-03-10", "type": "reel", "format": "video", "views": 14928, "likes": 179, "comments": 18, "url": "https://www.instagram.com/p/DVslueVDH5Q/", "caption": "Tiga goes crazyyy 👀😭  We hope you enjoyed our summerfest booth, SOS party and Alamak Adventure !! Keep a look out for more exciting events c"}, {"date": "2025-10-11", "type": "reel", "format": "video", "views": 13886, "likes": 196, "comments": 22, "url": "https://www.instagram.com/p/DPqbnXZEXpt/", "caption": "DAY 2 OF OFFICER RECRUITMENT INTERVIEWS HAS ENDED! I hope you enjoy our interview fits as much as we enjoyed your interviews !! Good luck to"}, {"date": "2025-11-02", "type": "reel", "format": "video", "views": 12796, "likes": 119, "comments": 32, "url": "https://www.instagram.com/p/DQjFuhVE6nK/", "caption": "Spill the TEA about MoMU x DES BIGGEST END OF EXAMS PARTY with your friends 🫢‼️  Party details: 📌 District 1 Melbourne 📆 Party with us on 21"}], "top_posts": [{"date": "2026-08-14", "type": "post", "format": "carousel", "views": null, "likes": 779, "comments": 21, "url": "https://www.instagram.com/p/DcA8UbcGion/", "caption": "Finding little pieces of Malaysia around Melbourne 🇲🇾💛 From familiar flavours to familiar places, Melbourne might be more similar to our roo"}, {"date": "2026-05-23", "type": "post", "format": "carousel", "views": null, "likes": 388, "comments": 32, "url": "https://www.instagram.com/p/DYrUsiZGnYp/", "caption": "👏👏 Say hello to our 25/26 MoMU committee!! With so many exciting new faces, we are so glad to have an incredible group of executives, direct"}, {"date": "2026-06-24", "type": "post", "format": "carousel", "views": null, "likes": 192, "comments": 15, "url": "https://www.instagram.com/p/DZ9nwcAm3V4/", "caption": "MoMU’s cruise party is undoubtedly one of the many anticipated events of the year —— did you manage to catch it? 🧐🤨  Here are some pics to r"}, {"date": "2026-09-01", "type": "post", "format": "carousel", "views": null, "likes": 165, "comments": 11, "url": "https://www.instagram.com/p/DcvSo2Ymk0Y/", "caption": "Missing home a little extra lately? 🇲🇾🥹  Here are a few ways to feel a little more at home in Melbourne! From eating your favourite Malaysia"}, {"date": "2026-08-31", "type": "post", "format": "image", "views": null, "likes": 164, "comments": 8, "url": "https://www.instagram.com/p/Dcr-UDCsFSR/", "caption": "A little piece of Malaysia, wherever we go. Today, we celebrate the home that brings us together!  Selamat Hari Merdeka from MoMU! 🇲🇾🤍  #MoM"}], "prior": {"generated": "2026-09-17T11:13:48Z", "window": "2024-10-01 to 2025-09-30", "source": "instagram.com/momuians profile grid + reels tab, scraped via HAR capture 2026-09-17", "count": 142, "headline": {"reels": 98, "posts": 44, "first": "2024-10-03", "last": "2025-09-29", "total_reel_views": 676424, "avg_reel_views": 6902, "median_reel_views": 6628, "total_interactions": 13908, "avg_engagement_rate": 0.0153}, "reels_timeline": [{"date": "2024-10-03", "views": 4768, "interactions": 100}, {"date": "2024-10-07", "views": 5089, "interactions": 65}, {"date": "2024-10-09", "views": 8260, "interactions": 137}, {"date": "2024-10-11", "views": 6350, "interactions": 118}, {"date": "2024-10-14", "views": 5838, "interactions": 58}, {"date": "2024-10-16", "views": 8620, "interactions": 105}, {"date": "2024-10-21", "views": 8248, "interactions": 152}, {"date": "2024-10-24", "views": 5177, "interactions": 127}, {"date": "2024-11-03", "views": 5949, "interactions": 102}, {"date": "2024-11-13", "views": 4157, "interactions": 72}, {"date": "2024-12-11", "views": 4275, "interactions": 92}, {"date": "2024-12-19", "views": 3634, "interactions": 72}, {"date": "2024-12-24", "views": 3464, "interactions": 105}, {"date": "2024-12-31", "views": 4515, "interactions": 78}, {"date": "2025-01-26", "views": 2690, "interactions": 65}, {"date": "2025-01-30", "views": 2734, "interactions": 103}, {"date": "2025-02-03", "views": 4227, "interactions": 96}, {"date": "2025-02-06", "views": 4909, "interactions": 66}, {"date": "2025-02-10", "views": 4174, "interactions": 73}, {"date": "2025-02-15", "views": 8828, "interactions": 80}, {"date": "2025-02-17", "views": 6970, "interactions": 98}, {"date": "2025-02-19", "views": 4561, "interactions": 76}, {"date": "2025-02-21", "views": 7432, "interactions": 114}, {"date": "2025-02-23", "views": 5523, "interactions": 86}, {"date": "2025-02-24", "views": 6590, "interactions": 94}, {"date": "2025-02-25", "views": 4812, "interactions": 66}, {"date": "2025-02-26", "views": 6154, "interactions": 83}, {"date": "2025-02-27", "views": 6127, "interactions": 98}, {"date": "2025-03-01", "views": 6907, "interactions": 66}, {"date": "2025-03-02", "views": 6873, "interactions": 175}, {"date": "2025-03-03", "views": 8183, "interactions": 87}, {"date": "2025-03-05", "views": 7072, "interactions": 97}, {"date": "2025-03-09", "views": 4071, "interactions": 83}, {"date": "2025-03-14", "views": 5362, "interactions": 83}, {"date": "2025-03-15", "views": 7000, "interactions": 85}, {"date": "2025-03-18", "views": 10472, "interactions": 77}, {"date": "2025-03-20", "views": 7437, "interactions": 72}, {"date": "2025-03-23", "views": 7503, "interactions": 99}, {"date": "2025-03-25", "views": 8088, "interactions": 146}, {"date": "2025-03-27", "views": 5202, "interactions": 70}, {"date": "2025-03-30", "views": 8053, "interactions": 70}, {"date": "2025-04-01", "views": 3870, "interactions": 49}, {"date": "2025-04-02", "views": 7023, "interactions": 112}, {"date": "2025-04-05", "views": 8862, "interactions": 125}, {"date": "2025-04-08", "views": 4209, "interactions": 80}, {"date": "2025-04-09", "views": 6382, "interactions": 101}, {"date": "2025-04-11", "views": 9688, "interactions": 91}, {"date": "2025-04-13", "views": 8778, "interactions": 233}, {"date": "2025-04-16", "views": 3710, "interactions": 78}, {"date": "2025-04-18", "views": 6395, "interactions": 101}, {"date": "2025-04-28", "views": 16889, "interactions": 222}, {"date": "2025-04-30", "views": 16679, "interactions": 153}, {"date": "2025-05-01", "views": 16125, "interactions": 113}, {"date": "2025-05-02", "views": 7822, "interactions": 144}, {"date": "2025-05-04", "views": 4279, "interactions": 57}, {"date": "2025-05-05", "views": 5607, "interactions": 131}, {"date": "2025-05-07", "views": 6621, "interactions": 91}, {"date": "2025-05-08", "views": 8884, "interactions": 120}, {"date": "2025-05-13", "views": 4987, "interactions": 111}, {"date": "2025-05-14", "views": 9255, "interactions": 97}, {"date": "2025-05-21", "views": 8143, "interactions": 131}, {"date": "2025-05-25", "views": 7054, "interactions": 117}, {"date": "2025-06-01", "views": 8678, "interactions": 130}, {"date": "2025-06-03", "views": 8645, "interactions": 73}, {"date": "2025-06-07", "views": 5001, "interactions": 100}, {"date": "2025-06-09", "views": 8237, "interactions": 87}, {"date": "2025-06-14", "views": 9884, "interactions": 289}, {"date": "2025-06-20", "views": 9506, "interactions": 125}, {"date": "2025-06-29", "views": 6087, "interactions": 73}, {"date": "2025-07-06", "views": 8112, "interactions": 109}, {"date": "2025-07-14", "views": 10292, "interactions": 116}, {"date": "2025-07-15", "views": 9059, "interactions": 66}, {"date": "2025-07-20", "views": 11848, "interactions": 148}, {"date": "2025-07-22", "views": 6514, "interactions": 58}, {"date": "2025-07-23", "views": 6914, "interactions": 81}, {"date": "2025-07-24", "views": 5262, "interactions": 61}, {"date": "2025-07-30", "views": 6778, "interactions": 74}, {"date": "2025-08-03", "views": 10494, "interactions": 103}, {"date": "2025-08-08", "views": 6280, "interactions": 105}, {"date": "2025-08-13", "views": 7768, "interactions": 110}, {"date": "2025-08-20", "views": 6619, "interactions": 65}, {"date": "2025-08-21", "views": 4184, "interactions": 42}, {"date": "2025-08-23", "views": 5971, "interactions": 76}, {"date": "2025-08-26", "views": 4200, "interactions": 55}, {"date": "2025-08-28", "views": 3860, "interactions": 77}, {"date": "2025-08-30", "views": 6011, "interactions": 92}, {"date": "2025-09-04", "views": 7646, "interactions": 91}, {"date": "2025-09-06", "views": 6743, "interactions": 83}, {"date": "2025-09-08", "views": 7157, "interactions": 115}, {"date": "2025-09-11", "views": 4823, "interactions": 59}, {"date": "2025-09-13", "views": 6635, "interactions": 106}, {"date": "2025-09-16", "views": 4674, "interactions": 55}, {"date": "2025-09-18", "views": 10319, "interactions": 106}, {"date": "2025-09-19", "views": 7280, "interactions": 88}, {"date": "2025-09-21", "views": 4873, "interactions": 93}, {"date": "2025-09-23", "views": 8424, "interactions": 108}, {"date": "2025-09-26", "views": 3802, "interactions": 53}, {"date": "2025-09-29", "views": 10284, "interactions": 258}], "posts_timeline": [{"date": "2024-10-09", "likes": 26, "comments": 0, "format": "image"}, {"date": "2024-10-28", "likes": 75, "comments": 0, "format": "image"}, {"date": "2024-10-31", "likes": 49, "comments": 0, "format": "image"}, {"date": "2024-12-25", "likes": 55, "comments": 1, "format": "image"}, {"date": "2024-12-26", "likes": 25, "comments": 0, "format": "image"}, {"date": "2025-01-18", "likes": 57, "comments": 3, "format": "carousel"}, {"date": "2025-01-29", "likes": 58, "comments": 1, "format": "image"}, {"date": "2025-02-07", "likes": 82, "comments": 0, "format": "image"}, {"date": "2025-02-12", "likes": 82, "comments": 1, "format": "image"}, {"date": "2025-02-22", "likes": 54, "comments": 0, "format": "image"}, {"date": "2025-03-08", "likes": 161, "comments": 0, "format": "carousel"}, {"date": "2025-03-10", "likes": 143, "comments": 0, "format": "carousel"}, {"date": "2025-03-12", "likes": 94, "comments": 0, "format": "carousel"}, {"date": "2025-03-16", "likes": 126, "comments": 1, "format": "carousel"}, {"date": "2025-03-31", "likes": 82, "comments": 0, "format": "image"}, {"date": "2025-04-04", "likes": 42, "comments": 0, "format": "image"}, {"date": "2025-04-25", "likes": 86, "comments": 0, "format": "image"}, {"date": "2025-04-27", "likes": 142, "comments": 3, "format": "carousel"}, {"date": "2025-04-29", "likes": 123, "comments": 4, "format": "carousel"}, {"date": "2025-04-30", "likes": 64, "comments": 3, "format": "image"}, {"date": "2025-05-03", "likes": 163, "comments": 7, "format": "carousel"}, {"date": "2025-05-12", "likes": 146, "comments": 4, "format": "carousel"}, {"date": "2025-05-28", "likes": 67, "comments": 2, "format": "image"}, {"date": "2025-06-02", "likes": 84, "comments": 6, "format": "image"}, {"date": "2025-06-12", "likes": 48, "comments": 0, "format": "image"}, {"date": "2025-06-14", "likes": 56, "comments": 2, "format": "image"}, {"date": "2025-07-16", "likes": 72, "comments": 0, "format": "image"}, {"date": "2025-07-31", "likes": 96, "comments": 1, "format": "carousel"}, {"date": "2025-08-04", "likes": 143, "comments": 10, "format": "carousel"}, {"date": "2025-08-10", "likes": 113, "comments": 19, "format": "image"}, {"date": "2025-08-12", "likes": 326, "comments": 17, "format": "carousel"}, {"date": "2025-08-19", "likes": 39, "comments": 7, "format": "image"}, {"date": "2025-08-27", "likes": 64, "comments": 0, "format": "image"}, {"date": "2025-08-31", "likes": 98, "comments": 0, "format": "image"}, {"date": "2025-09-03", "likes": 77, "comments": 5, "format": "image"}, {"date": "2025-09-10", "likes": 47, "comments": 0, "format": "image"}, {"date": "2025-09-16", "likes": 64, "comments": 0, "format": "image"}, {"date": "2025-09-18", "likes": 155, "comments": 0, "format": "carousel"}, {"date": "2025-09-18", "likes": 69, "comments": 0, "format": "image"}, {"date": "2025-09-22", "likes": 137, "comments": 0, "format": "carousel"}, {"date": "2025-09-27", "likes": 84, "comments": 1, "format": "carousel"}, {"date": "2025-09-27", "likes": 82, "comments": 3, "format": "carousel"}, {"date": "2025-09-27", "likes": 94, "comments": 5, "format": "carousel"}, {"date": "2025-09-27", "likes": 74, "comments": 0, "format": "carousel"}], "by_month": [{"month": "2024-10", "reels": 8, "posts": 3, "avg_reel_views": 6544, "avg_reel_likes": 106, "avg_post_likes": 50}, {"month": "2024-11", "reels": 2, "posts": 0, "avg_reel_views": 5053, "avg_reel_likes": 86, "avg_post_likes": null}, {"month": "2024-12", "reels": 4, "posts": 2, "avg_reel_views": 3972, "avg_reel_likes": 83, "avg_post_likes": 40}, {"month": "2025-01", "reels": 2, "posts": 2, "avg_reel_views": 2712, "avg_reel_likes": 78, "avg_post_likes": 58}, {"month": "2025-02", "reels": 12, "posts": 3, "avg_reel_views": 5859, "avg_reel_likes": 81, "avg_post_likes": 73}, {"month": "2025-03", "reels": 13, "posts": 5, "avg_reel_views": 7094, "avg_reel_likes": 90, "avg_post_likes": 121}, {"month": "2025-04", "reels": 11, "posts": 5, "avg_reel_views": 8408, "avg_reel_likes": 118, "avg_post_likes": 91}, {"month": "2025-05", "reels": 10, "posts": 3, "avg_reel_views": 7878, "avg_reel_likes": 104, "avg_post_likes": 125}, {"month": "2025-06", "reels": 7, "posts": 3, "avg_reel_views": 8005, "avg_reel_likes": 123, "avg_post_likes": 63}, {"month": "2025-07", "reels": 8, "posts": 2, "avg_reel_views": 8097, "avg_reel_likes": 86, "avg_post_likes": 84}, {"month": "2025-08", "reels": 9, "posts": 6, "avg_reel_views": 6154, "avg_reel_likes": 74, "avg_post_likes": 130}, {"month": "2025-09", "reels": 12, "posts": 10, "avg_reel_views": 6888, "avg_reel_likes": 95, "avg_post_likes": 88}], "day_of_week": [{"day": "Monday", "avg_views": 7699, "n": 14}, {"day": "Tuesday", "avg_views": 6138, "n": 14}, {"day": "Wednesday", "avg_views": 7166, "n": 18}, {"day": "Thursday", "avg_views": 6318, "n": 16}, {"day": "Friday", "avg_views": 6992, "n": 10}, {"day": "Saturday", "avg_views": 7184, "n": 10}, {"day": "Sunday", "avg_views": 6929, "n": 16}], "format_split": {"carousel": {"n": 18, "avg_likes": 130}, "single": {"n": 26, "avg_likes": 65}}, "top_reels": [{"date": "2025-04-28", "type": "reel", "format": "video", "views": 16889, "likes": 211, "comments": 11, "url": "https://www.instagram.com/reel/DI_Hvf4ywYo/", "caption": ""}, {"date": "2025-04-30", "type": "reel", "format": "video", "views": 16679, "likes": 148, "comments": 5, "url": "https://www.instagram.com/reel/DJEUNaTRcHU/", "caption": ""}, {"date": "2025-05-01", "type": "reel", "format": "video", "views": 16125, "likes": 109, "comments": 4, "url": "https://www.instagram.com/reel/DJG8ZWTShKP/", "caption": ""}, {"date": "2025-07-20", "type": "reel", "format": "video", "views": 11848, "likes": 148, "comments": 0, "url": "https://www.instagram.com/reel/DMU3AkqRwlq/", "caption": ""}, {"date": "2025-08-03", "type": "reel", "format": "video", "views": 10494, "likes": 100, "comments": 3, "url": "https://www.instagram.com/reel/DM4SL5aRTg-/", "caption": ""}], "top_posts": [{"date": "2025-08-12", "type": "post", "format": "carousel", "views": null, "likes": 326, "comments": 17, "url": "https://www.instagram.com/p/DNQYrgTPI19/", "caption": "introducing our 24/25 MoMU committee with all smiles! 🤩⭐️ this year we are so blessed to have such a talented board of executives, directors"}, {"date": "2025-05-03", "type": "post", "format": "carousel", "views": null, "likes": 163, "comments": 7, "url": "https://www.instagram.com/p/DJLpwkzvMoG/", "caption": "MoMU Easter Camp 2025 Photo Dump!! 🏕️⭐️ do u spot urself there?? 😚 we hope u had the best time at our camp this year as much as we had hosti"}, {"date": "2025-03-08", "type": "post", "format": "carousel", "views": null, "likes": 161, "comments": 0, "url": "https://www.instagram.com/p/DG7m7TCvQvn/", "caption": "SUMMERFEST PHOTO RECAP 2025 ☀️🌴 , it was amazing seeing all your wonderful faces there MoMUians!! till next time 🤩💫  #summerfest #umsu #expl"}, {"date": "2025-09-18", "type": "post", "format": "carousel", "views": null, "likes": 155, "comments": 0, "url": "https://www.instagram.com/p/DOuUx38E856/", "caption": "it’s time to reminisce on the sparkliest event of the year! 🛥️ 🪩 here’s a recap of all the good mems captured during our MoMU x SSS glitz an"}, {"date": "2025-05-12", "type": "post", "format": "carousel", "views": null, "likes": 146, "comments": 4, "url": "https://www.instagram.com/p/DJjFY37PCwv/", "caption": "Introducing MoMU’s 2025 Sponsors!! 🤩💫 We hope you enjoy using exclusive perks from our partners ❤️   #momuians #sponsors #momu #explorepage "}]}}</script>
   <script>
     const D = JSON.parse(document.getElementById('report-data').textContent);
     const ML = { '2025-10': 'Oct', '2025-11': 'Nov', '2025-12': 'Dec', '2026-01': 'Jan', '2026-02': 'Feb', '2026-03': 'Mar', '2026-04': 'Apr', '2026-05': 'May', '2026-06': 'Jun', '2026-07': 'Jul', '2026-08': 'Aug', '2026-09': 'Sep' };
@@ -845,6 +1103,30 @@
         scales: { x: xAxis({ ticks: { color: inkFaint } }), y: yAxis({ ticks: { color: inkFaint, padding: 8, callback: v => v >= 1000 ? v / 1000 + 'k' : v } }) },
       },
     });
+
+    // --- year over year ---
+    if (D.prior) {
+      const yoyLabels = ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'];
+      new Chart(document.getElementById('yoy'), {
+        type: 'line',
+        data: {
+          labels: yoyLabels,
+          datasets: [
+            { label: 'This year', data: D.by_month.map(m => m.avg_reel_views), borderColor: ochre, backgroundColor: ochre, borderWidth: 2, pointRadius: 3, pointHoverRadius: 5, tension: 0.3 },
+            { label: 'Last year', data: D.prior.by_month.map(m => m.avg_reel_views), borderColor: slate, backgroundColor: slate, borderWidth: 2, borderDash: [4, 3], pointRadius: 3, pointHoverRadius: 5, tension: 0.3 },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false, responsive: true,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { position: 'top', align: 'end', labels: { color: inkSoft, boxWidth: 10, boxHeight: 10, usePointStyle: true, pointStyle: 'rectRounded', padding: 16 } },
+            tooltip: { ...tip, displayColors: true, callbacks: { label: c => c.dataset.label + ': ' + c.raw.toLocaleString() + ' avg views' } },
+          },
+          scales: { x: xAxis(), y: yAxis({ ticks: { color: inkFaint, padding: 8, callback: v => v >= 1000 ? v / 1000 + 'k' : v } }) },
+        },
+      });
+    }
 
     // --- one authored reveal ---
     if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {

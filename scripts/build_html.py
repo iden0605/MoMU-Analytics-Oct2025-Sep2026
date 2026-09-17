@@ -11,6 +11,8 @@ import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 S = json.load(open(os.path.join(ROOT, "data", "summary.json")))
+PRIOR_PATH = os.path.join(ROOT, "data", "prior-year", "summary.json")
+P = json.load(open(PRIOR_PATH)) if os.path.exists(PRIOR_PATH) else None
 
 MONTH_LABEL = {
     "2025-10": "Oct", "2025-11": "Nov", "2025-12": "Dec", "2026-01": "Jan",
@@ -24,7 +26,86 @@ def fdate(iso):
     return f"{int(d)} {MONTH_LABEL[y + '-' + m]}"
 
 
+def pct(now, then):
+    sign = "+" if now >= then else ""
+    return f"{sign}{round((now - then) / then * 100)}%"
+
+
 h = S["headline"]
+compare_section = ""
+if P:
+    S["prior"] = P
+    ph = P["headline"]
+    compare_section = f"""
+    <section>
+      <h2>How this year compares</h2>
+      <p>We pulled the same twelve months a year earlier, October 2024 to September 2025, so here is this year set against that one. We are not picking last year apart the way we did this one, just lining the totals up.</p>
+      <div class="compare">
+        <div class="row">
+          <div class="metric">Reels posted</div>
+          <div class="years">
+            <div class="yr"><span class="fig now">{h['reels']}</span><span class="lbl">This year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig">{ph['reels']}</span><span class="lbl">Last year</span></div>
+          </div>
+          <div class="delta">{pct(h['reels'], ph['reels'])}</div>
+        </div>
+        <div class="row">
+          <div class="metric">Posts</div>
+          <div class="years">
+            <div class="yr"><span class="fig now">{h['posts']}</span><span class="lbl">This year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig">{ph['posts']}</span><span class="lbl">Last year</span></div>
+          </div>
+          <div class="delta">{pct(h['posts'], ph['posts'])}</div>
+        </div>
+        <div class="row">
+          <div class="metric">Views per reel, on average</div>
+          <div class="years">
+            <div class="yr"><span class="fig now num">{h['avg_reel_views']:,}</span><span class="lbl">This year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig num">{ph['avg_reel_views']:,}</span><span class="lbl">Last year</span></div>
+          </div>
+          <div class="delta">{pct(h['avg_reel_views'], ph['avg_reel_views'])}</div>
+        </div>
+        <div class="row">
+          <div class="metric">Likes and comments, all up</div>
+          <div class="years">
+            <div class="yr"><span class="fig now num">{h['total_interactions']:,}</span><span class="lbl">This year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig num">{ph['total_interactions']:,}</span><span class="lbl">Last year</span></div>
+          </div>
+          <div class="delta">{pct(h['total_interactions'], ph['total_interactions'])}</div>
+        </div>
+        <div class="row">
+          <div class="metric">Engagement rate</div>
+          <div class="years">
+            <div class="yr"><span class="fig now">{h['avg_engagement_rate']*100:.1f}<span class="unit">%</span></span><span class="lbl">This year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig">{ph['avg_engagement_rate']*100:.1f}<span class="unit">%</span></span><span class="lbl">Last year</span></div>
+          </div>
+          <div class="delta">{pct(h['avg_engagement_rate'], ph['avg_engagement_rate'])}</div>
+        </div>
+        <div class="row">
+          <div class="metric">Carousel posts, average likes</div>
+          <div class="years">
+            <div class="yr"><span class="fig now num">{S['format_split']['carousel']['avg_likes']}</span><span class="lbl">This year</span></div>
+            <span class="sep">&larr;</span>
+            <div class="yr"><span class="fig num">{P['format_split']['carousel']['avg_likes']}</span><span class="lbl">Last year</span></div>
+          </div>
+          <div class="delta">{pct(S['format_split']['carousel']['avg_likes'], P['format_split']['carousel']['avg_likes'])}</div>
+        </div>
+      </div>
+      <figure>
+        <div class="figure-head">
+          <div class="cap">Average reel views by month, this year against last year</div>
+          <div class="sub">lined up October to September both years</div>
+        </div>
+        <div class="plot mid"><canvas id="yoy"></canvas></div>
+        <figcaption>The two years took different paths to a similar place. Last year built slowly, from a quiet <b>2,700</b> views in January up past <b>8,000</b> by the middle of the year. This year did the opposite, starting strong at nearly <b>11,000</b> in October and drifting down from there before picking back up in August. Reels overall got a little fewer and a little less watched this year, {h['reels']} against {ph['reels']}, but the ones that landed got <b>more likes and comments per view</b> than last year's did.</figcaption>
+      </figure>
+    </section>
+"""
 data_js = json.dumps(S, ensure_ascii=False)
 
 HTML = f"""<!DOCTYPE html>
@@ -187,6 +268,45 @@ HTML = f"""<!DOCTYPE html>
     .ledger .say {{ color: var(--ink-soft); font-size: 1rem; align-self: center; }}
     .ledger .say b {{ color: var(--ink); }}
 
+    /* ---- year-over-year comparison ---- */
+    .compare {{ margin-top: 40px; border-top: 2px solid var(--ink); }}
+    .compare .row {{
+      display: grid;
+      grid-template-columns: minmax(0, 11rem) 1fr auto;
+      gap: 8px 24px;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+    }}
+    .compare .metric {{
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }}
+    .compare .years {{ display: flex; align-items: baseline; gap: 16px; }}
+    .compare .yr {{ display: flex; flex-direction: column; gap: 2px; }}
+    .compare .yr .fig {{
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-faint);
+    }}
+    .compare .yr .fig.now {{ color: var(--ochre); }}
+    .compare .yr .fig .unit {{ font-size: 0.75rem; letter-spacing: 0; margin-left: 1px; }}
+    .compare .yr .lbl {{ font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }}
+    .compare .sep {{ color: var(--ink-faint); font-size: 1rem; }}
+    .compare .delta {{
+      font-size: 0.92rem;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-soft);
+      text-align: right;
+      white-space: nowrap;
+    }}
+
     /* ---- figure / chart ---- */
     figure {{ margin: 40px 0 0; }}
     .figure-head {{ margin-bottom: 18px; }}
@@ -277,6 +397,8 @@ HTML = f"""<!DOCTYPE html>
       .hero {{ padding: 60px 0 46px; }}
       section {{ padding: 50px 0; }}
       .ledger .row {{ grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }}
+      .compare .row {{ grid-template-columns: 1fr; gap: 8px; padding: 16px 0; }}
+      .compare .delta {{ text-align: left; }}
       .plot.tall {{ height: 340px; }}
       .plan li {{ grid-template-columns: 1fr; gap: 8px; }}
       .plan li::before {{ font-size: 1.25rem; }}
@@ -320,7 +442,7 @@ HTML = f"""<!DOCTYPE html>
         </div>
         <div class="row">
           <div class="fig num">{h['avg_engagement_rate'] * 100:.1f}<span class="unit">%</span></div>
-          <div class="say">Of the people who watch a reel, this many <b>like or comment</b>. It has stayed about the same all year.</div>
+          <div class="say">Of the people who watch a reel, this many <b>like or comment</b> &mdash; averaged reel by reel, not likes summed over views. It has stayed about the same all year.</div>
         </div>
         <div class="row">
           <div class="fig num">18.7<span class="unit">k</span></div>
@@ -414,7 +536,7 @@ HTML = f"""<!DOCTYPE html>
         <figcaption><b>Tuesday</b> is highest, with Wednesday to Friday close behind. <b>Monday</b> is lowest and weekends sit in the middle. Midweek does a bit better, but not by much.</figcaption>
       </figure>
     </section>
-
+{compare_section}
     <section>
       <h2>What to try next</h2>
       <ol class="plan">
@@ -429,6 +551,8 @@ HTML = f"""<!DOCTYPE html>
     <footer>
       <p>Pulled from the public @momuians profile and reels tab on 7 September 2026. Reel view counts are from Instagram directly. Likes and comments are from that date and will have gone up a little since. Posting times are rounded by Instagram, so the day of the week can be off by a few hours around midnight.</p>
       <p>Not in here: reach, impressions, profile visits, link taps, follower splits and follows. Instagram no longer shows these publicly, they are only in the account's own insights.</p>
+      <p>Engagement rate is (likes + comments) &divide; views, worked out per reel, then averaged across every reel. A reel with 1,000 views and 20 likes and comments scores 2%, same as one with 10,000 views and 200; each reel counts once, however many people saw it.</p>
+      {"" if not P else '<p>Last year&rsquo;s comparison figures (October 2024 to September 2025) were pulled the same way on 17 September 2026. A handful of reels came back without a posting time from Instagram; those were estimated from where they fall among posts we do have times for, since post IDs run in order of posting time.</p>'}
       <p>MoMU, October 2025 to September 2026.</p>
     </footer>
 
@@ -570,6 +694,30 @@ HTML = f"""<!DOCTYPE html>
         scales: {{ x: xAxis({{ ticks: {{ color: inkFaint }} }}), y: yAxis({{ ticks: {{ color: inkFaint, padding: 8, callback: v => v >= 1000 ? v / 1000 + 'k' : v }} }}) }},
       }},
     }});
+
+    // --- year over year ---
+    if (D.prior) {{
+      const yoyLabels = ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'];
+      new Chart(document.getElementById('yoy'), {{
+        type: 'line',
+        data: {{
+          labels: yoyLabels,
+          datasets: [
+            {{ label: 'This year', data: D.by_month.map(m => m.avg_reel_views), borderColor: ochre, backgroundColor: ochre, borderWidth: 2, pointRadius: 3, pointHoverRadius: 5, tension: 0.3 }},
+            {{ label: 'Last year', data: D.prior.by_month.map(m => m.avg_reel_views), borderColor: slate, backgroundColor: slate, borderWidth: 2, borderDash: [4, 3], pointRadius: 3, pointHoverRadius: 5, tension: 0.3 }},
+          ],
+        }},
+        options: {{
+          maintainAspectRatio: false, responsive: true,
+          interaction: {{ mode: 'index', intersect: false }},
+          plugins: {{
+            legend: {{ position: 'top', align: 'end', labels: {{ color: inkSoft, boxWidth: 10, boxHeight: 10, usePointStyle: true, pointStyle: 'rectRounded', padding: 16 }} }},
+            tooltip: {{ ...tip, displayColors: true, callbacks: {{ label: c => c.dataset.label + ': ' + c.raw.toLocaleString() + ' avg views' }} }},
+          }},
+          scales: {{ x: xAxis(), y: yAxis({{ ticks: {{ color: inkFaint, padding: 8, callback: v => v >= 1000 ? v / 1000 + 'k' : v }} }}) }},
+        }},
+      }});
+    }}
 
     // --- one authored reveal ---
     if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {{
