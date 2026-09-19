@@ -1016,6 +1016,7 @@
     // --- cadence vs avg views ---
     const bm = D.by_month;
     new Chart(document.getElementById('cadence'), {
+      type: 'bar',
       data: {
         labels: bm.map(m => ML[m.month]),
         datasets: [
