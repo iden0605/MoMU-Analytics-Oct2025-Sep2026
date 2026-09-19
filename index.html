@@ -741,7 +741,7 @@
           <div class="cap">Reels posted per month against average views</div>
           <div class="sub">bars are the count, the line is average views that month</div>
         </div>
-        <div class="plot mid"><canvas id="cadence"></canvas></div>
+        <div class="plot mid"><canvas id="cadenceChart"></canvas></div>
         <figcaption>April to June was our busiest run, <b>29 reels</b> in three months, and also our worst, averaging
           about <b>5,400 views</b>. The quieter months from October to January averaged closer to <b>7,700</b>. Posting
           more often just meant each reel got seen less. Over the year we did <b>about two reels a week</b>, and six in
@@ -1015,7 +1015,7 @@
 
     // --- cadence vs avg views ---
     const bm = D.by_month;
-    new Chart(document.getElementById('cadence'), {
+    new Chart(document.getElementById('cadenceChart'), {
       type: 'bar',
       data: {
         labels: bm.map(m => ML[m.month]),
